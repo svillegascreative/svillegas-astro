@@ -1,3 +1,9 @@
+---
+import site from "../data/site.json";
+
+const { title } = Astro.props;
+---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,7 +11,18 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+
+    <meta name="description" content={site.description} />
+    <meta property="og:title" content={site.og.title} />
+    <meta property="og:url" content={site.og.url} />
+    <meta property="og:description" content={site.og.description} />
+    <meta property="og:image" content={site.og.image} />
+    <meta property="twitter:title" content={site.twitter.title} />
+    <meta property="twitter:description" content={site.twitter.description} />
+    <meta property="twitter:image" content={site.twitter.image} />
+    <meta property="twitter:card" content={site.twitter.card} />
+
+    <title>{title ? `${title} | ` : ""}{site.title}</title>
   </head>
 
   <body>
