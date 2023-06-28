@@ -1,0 +1,25 @@
+---
+import menu from "../data/menu.json";
+
+const pageUrl = Astro.url.pathname;
+---
+
+<header class="site-banner">
+  <nav class="site-nav" aria-label="Main menu">
+    <ul class="main-nav-list">
+      {
+        menu.map((link) => (
+          <li>
+            {pageUrl == link.url ? (
+              <a href="#main" class="current-page" aria-current="page">
+                {link.name}
+              </a>
+            ) : (
+              <a href={link.url}>{link.name}</a>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

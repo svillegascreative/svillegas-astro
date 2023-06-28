@@ -1,5 +1,7 @@
 ---
 import site from "../data/site.json";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const { title } = Astro.props;
 ---
@@ -26,6 +28,8 @@ const { title } = Astro.props;
   </head>
 
   <body>
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>
