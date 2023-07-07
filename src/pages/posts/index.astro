@@ -1,15 +1,18 @@
 ---
 import { getCollection } from "astro:content";
+import Document from "../../layouts/Document.astro";
 
 const posts = await getCollection("posts");
 ---
 
-<ul>
-  {
-    posts.map((post) => (
-      <li>
-        <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-      </li>
-    ))
-  }
-</ul>
+<Document>
+  <ul>
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</Document>
