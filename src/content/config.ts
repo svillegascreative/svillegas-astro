@@ -3,6 +3,7 @@ import { defineCollection, z } from "astro:content";
 const forSaleCollection = defineCollection({
   type: "content",
   schema: z.object({
+    description: z.string(),
     title: z.string(),
     photos: z.array(z.string().url()),
     price: z.string(),
