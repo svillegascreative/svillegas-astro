@@ -10,6 +10,13 @@ const forSaleCollection = defineCollection({
   }),
 });
 
+const nowCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    date: z.string(),
+  }),
+});
+
 const postsCollection = defineCollection({
   type: "content",
   schema: z.object({
@@ -23,5 +30,6 @@ const postsCollection = defineCollection({
 // This key should match your collection directory name in "src/content"
 export const collections = {
   "for-sale": forSaleCollection,
+  now: nowCollection,
   posts: postsCollection,
 };
