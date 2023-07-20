@@ -4,12 +4,8 @@
     "url": "/"
   },
   {
-    "name": "Equine",
-    "url": "/equine/"
-  },
-  {
-    "name": "Web",
-    "url": "/web/"
+    "name": "Posts",
+    "url": "/posts/"
   },
   {
     "name": "About",
