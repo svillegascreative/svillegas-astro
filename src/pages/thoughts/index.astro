@@ -5,18 +5,38 @@ import Document from "../../layouts/Document.astro";
 const thoughts = await useSanityClient().fetch(`*[_type == "thought"]`);
 ---
 
+<style>
+  time {
+    display: block;
+  }
+</style>
+
 <Document>
   <h1>thoughts.</h1>
+
+  <p>
+    Just a place to post some of my miscellaneous thoughts, since I don't want
+    to do so on the blue bird app anymore.
+  </p>
 
   {
     thoughts && (
       <ul>
-        {thoughts.map((thought) => (
-          <li>
-            <time datetime={thought._createdAt}>{thought._createdAt}</time>
-            {thought.text}
-          </li>
-        ))}
+        {thoughts.map((thought) => {
+          const date = new Date(thought._createdAt);
+          return (
+            <li>
+              <time datetime={thought._createdAt}>
+                {new Intl.DateTimeFormat("en-CA", {
+                  dateStyle: "full",
+                  timeStyle: "long",
+                  timeZone: "America/Toronto",
+                }).format(date)}
+              </time>
+              {thought.text}
+            </li>
+          );
+        })}
       </ul>
     )
   }
