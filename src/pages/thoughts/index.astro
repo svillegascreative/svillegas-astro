@@ -1,0 +1,23 @@
+---
+import { useSanityClient } from "astro-sanity";
+import Document from "../../layouts/Document.astro";
+
+const thoughts = await useSanityClient().fetch(`*[_type == "thought"]`);
+---
+
+<Document>
+  <h1>thoughts.</h1>
+
+  {
+    thoughts && (
+      <ul>
+        {thoughts.map((thought) => (
+          <li>
+            <time datetime={thought._createdAt}>{thought._createdAt}</time>
+            {thought.text}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</Document>
