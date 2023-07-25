@@ -41,7 +41,7 @@ const webPosts = await getCollection("posts", ({ data }) => {
   }
 
   {
-    webPosts && (
+    webPosts?.length > 0 && (
       <>
         <h2>Some posts about the web</h2>
         <ul>
