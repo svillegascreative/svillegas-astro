@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import Document from "../../layouts/Document.astro";
+
+export async function getStaticPaths() {
+  const nowCollection = await getCollection("now");
+  return nowCollection.map((now) => ({
+    params: { date: now.data.date },
+    props: { now },
+  }));
+}
+
+const { now } = Astro.props;
+const { Content } = await now.render();
+---
+
+<Document>
+  <h1>{now.data.date}</h1>
+  <Content />
+</Document>
