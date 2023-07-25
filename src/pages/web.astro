@@ -1,7 +1,57 @@
 ---
+import { getCollection } from "astro:content";
 import Document from "../layouts/Document.astro";
+import wordSoup from "../data/tech-skills.json";
+
+const webPosts = await getCollection("posts", ({ data }) => {
+  return data.tags?.includes("web");
+});
 ---
+
+<style>
+  .word-soup li {
+    display: inline-block;
+  }
+</style>
 
 <Document>
   <h1>web stuff.</h1>
+
+  <p>
+    By day, I am a Senior Software Engineer at <a
+      href="https://www.deloittedigital.ca">
+      Deloitte Digital
+    </a>. I focus heavily on crafting modern, memorable, maintainable, and
+    accessible UI. I believe the Web is for everyone! When not coding at work, I
+    sometimes hack around on personal projects (like taking far too many years
+    constantly rebuilding personal sites on fun new tech -- sound familiar?)
+  </p>
+
+  {
+    wordSoup && (
+      <>
+        <h2 id="word-soup">Word soup:</h2>
+        <ul class="word-soup" aria-labelledby="word-soup">
+          {wordSoup.map((w) => (
+            <li>{w}</li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+
+  {
+    webPosts && (
+      <>
+        <h2>Some posts about the web</h2>
+        <ul>
+          {webPosts.map((post) => (
+            <li>
+              <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
 </Document>
