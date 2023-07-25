@@ -3,6 +3,7 @@ title: Deep Dive on WCAG 2.1 SC 1.3.5
 date: 2023-06-08
 tags:
   - web
+  - accessibility
 ---
 
 I was just reviewing[ WCAG 2.1](https://www.w3.org/TR/WCAG21/) Success Criteria (SC) -- yes, that's a thing that I'm doing, in preparation for [IAAP WAS certification](https://www.accessibilityassociation.org/s/wascertification) -- and had to pause at SC 1.3.5:
