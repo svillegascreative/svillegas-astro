@@ -1,15 +1,10 @@
 ---
 import { useSanityClient } from "astro-sanity";
+import Thought from "../../components/Thought.astro";
 import Document from "../../layouts/Document.astro";
 
 const thoughts = await useSanityClient().fetch(`*[_type == "thought"]`);
 ---
-
-<style>
-  time {
-    display: block;
-  }
-</style>
 
 <Document>
   <h1>thoughts.</h1>
@@ -22,21 +17,11 @@ const thoughts = await useSanityClient().fetch(`*[_type == "thought"]`);
   {
     thoughts && (
       <ul>
-        {thoughts.map((thought) => {
-          const date = new Date(thought._createdAt);
-          return (
-            <li>
-              <time datetime={thought._createdAt}>
-                {new Intl.DateTimeFormat("en-CA", {
-                  dateStyle: "full",
-                  timeStyle: "long",
-                  timeZone: "America/Toronto",
-                }).format(date)}
-              </time>
-              {thought.text}
-            </li>
-          );
-        })}
+        {thoughts.map((thought) => (
+          <li>
+            <Thought thought={thought} />
+          </li>
+        ))}
       </ul>
     )
   }
