@@ -1,0 +1,29 @@
+---
+import { convertStringToHTML } from "../utils/index";
+const { skills } = Astro.props;
+---
+
+<style>
+  li {
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+  }
+</style>
+
+<ul class="logo-soup" aria-labelledby="logo-soup">
+  {
+    skills.map((skill) => (
+      <li>
+        <svg
+          role="img"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          fill={skill.color}>
+          <title>{skill.name}</title>
+          <Fragment set:html={skill.svgPath} />
+        </svg>
+      </li>
+    ))
+  }
+</ul>

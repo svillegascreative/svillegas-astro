@@ -1,18 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 import Document from "../layouts/Document.astro";
-import wordSoup from "../data/tech-skills.json";
+import techSkills from "../data/tech-skills.json";
+import LogoSoup from "../components/LogoSoup.astro";
 
 const webPosts = await getCollection("posts", ({ data }) => {
   return data.tags?.includes("web");
 });
 ---
-
-<style>
-  .word-soup li {
-    display: inline-block;
-  }
-</style>
 
 <Document>
   <h1>web stuff.</h1>
@@ -28,14 +23,10 @@ const webPosts = await getCollection("posts", ({ data }) => {
   </p>
 
   {
-    wordSoup && (
+    techSkills && (
       <>
-        <h2 id="word-soup">Word soup:</h2>
-        <ul class="word-soup" aria-labelledby="word-soup">
-          {wordSoup.map((w) => (
-            <li>{w}</li>
-          ))}
-        </ul>
+        <h2 id="logo-soup">Tech soup:</h2>
+        <LogoSoup skills={techSkills} />
       </>
     )
   }
