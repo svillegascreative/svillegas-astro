@@ -8,13 +8,18 @@ const { thought } = Astro.props;
   }
 </style>
 
+<!--  -->
+
 {thought.text}
 
 <time datetime={thought._createdAt}>
   {
     new Intl.DateTimeFormat("en-CA", {
-      dateStyle: "full",
-      timeStyle: "long",
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
       timeZone: "America/Toronto",
     }).format(new Date(thought._createdAt))
   }
