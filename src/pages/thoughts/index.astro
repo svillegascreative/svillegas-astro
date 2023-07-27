@@ -4,6 +4,9 @@ import Thought from "../../components/Thought.astro";
 import Document from "../../layouts/Document.astro";
 
 const thoughts = await useSanityClient().fetch(`*[_type == "thought"]`);
+const sortedThoughts = thoughts.sort(
+  (a, b) => +new Date(b._createdAt) - +new Date(a._createdAt)
+);
 ---
 
 <Document>
@@ -15,9 +18,9 @@ const thoughts = await useSanityClient().fetch(`*[_type == "thought"]`);
   </p>
 
   {
-    thoughts && (
+    sortedThoughts && (
       <ul>
-        {thoughts.map((thought) => (
+        {sortedThoughts.map((thought) => (
           <li>
             <Thought thought={thought} />
           </li>
