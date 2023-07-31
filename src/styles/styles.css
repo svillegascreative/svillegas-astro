@@ -1,5 +1,42 @@
-@import "typography";
-@import "scale";
+/*               __          __        ___  __  
+ *    \  /  /\  |__) |  /\  |__) |    |__  /__` 
+ *     \/  /==\ |  \ | /==\ |__) |___ |___ .__/ 
+ */
+
+:root {
+  /* COLOURS */
+
+  --color-1: "#6e3091";
+  --color-2: "#4f2f87";
+  --color-3: "#2b2c7d";
+  --color-4: "#3c658e";
+  --color-5: "#37a09e";
+
+  /* SCALE */
+  --ratio: 1.5;
+  --s-5: calc(var(--s-4) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s5: calc(var(--s4) * var(--ratio));
+
+  /* TYPOGRAPHY */
+  --font: "Latina Essential Light", sans-serif;
+  --font-size: var(--s0);
+  --line-height: var(--ratio);
+  --measure: 70ch;
+}
+
+/*     __        __   __            
+ *    / _` |    /  \ |__)  /\  |    
+ *    \__> |___ \__/ |__) /==\ |___ 
+ */
 
 * {
   max-inline-size: var(--measure);
@@ -13,4 +50,70 @@ nav,
 main,
 footer {
   max-inline-size: none;
+}
+
+/*     ___  __       ___  __  
+ *    |__  /  \ |\ |  |  /__` 
+ *    |    \__/ | \|  |  .__/ 
+ */
+
+@font-face {
+  font-family: "Latina Essential Light";
+  src: url("../fonts/LatinaEssential-Light.eot") format("embedded-opentype"),
+    url("../fonts/LatinaEssential-Light.woff2") format("woff2"),
+    url("../fonts/LatinaEssential-Light.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Latina Essential Light";
+  src: url("../fonts/LatinaEssential-LightIt.eot") format("embedded-opentype"),
+    url("../fonts/LatinaEssential-LightIt.woff2") format("woff2"),
+    url("../fonts/LatinaEssential-LightIt.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Latina Essential Heavy";
+  src: url("../fonts/LatinaEssential-Heavy.eot") format("embedded-opentype"),
+    url("../fonts/LatinaEssential-Heavy.woff2") format("woff2"),
+    url("../fonts/LatinaEssential-Heavy.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*    ___      __   __   __   __        __           
+ *     |  \ / |__) /  \ / _` |__)  /\  |__) |__| \ / 
+ *     |   |  |    \__/ \__> |  \ /==\ |    |  |  |                                                     
+ */
+
+h1,
+h2,
+h3,
+h4 {
+  --font: "Latina Essential Heavy", serif;
+  --line-height: 1.2;
+}
+
+h1 {
+  --font-size: var(--s3);
+}
+h2 {
+  --font-size: var(--s2);
+}
+h3 {
+  --font-size: var(--s1);
+}
+
+body,
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  font-weight: normal;
 }
