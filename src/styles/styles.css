@@ -5,32 +5,50 @@
 
 :root {
   /* COLOURS */
+  /* rgba(137 48 145 / 0) */
+  --c-violet-lighter: rgba(231 213 233 / 0);
+  --c-violet-light: rgba(184 130 189 / 0);
+  --c-violet: lch(37% 60 323);
+  --c-violet-dark: rgba(82 28 87 / 0);
 
-  --color-1: "#6e3091";
-  --color-2: "#4f2f87";
-  --color-3: "#2b2c7d";
-  --color-4: "#3c658e";
-  --color-5: "#37a09e";
+  /* rgba(43 44 125 / 0) */
+  --c-navy-lighter: rgba(212 212 229 / 0);
+  --c-navy-light: rgba(127 128 177 / 0);
+  --c-navy: lch(22% 52 294);
+  --c-navy-dark: rgba(25 26 75 / 0);
+
+  /* rgba(53 156 154 / 0) */
+  --c-teal-lighter: rgba(214 235 234 / 0);
+  --c-teal-light: rgba(133 195 194 / 0);
+  --c-teal: lch(58% 32 195);
+  --c-teal-dark: rgba(31 93 92 / 0);
+
+  --c-cream: rgba(249 244 249 / 0);
+
+  --c-bg: var(--c-cream);
 
   /* SCALE */
   --ratio: 1.5;
-  --s-5: calc(var(--s-4) / var(--ratio));
-  --s-4: calc(var(--s-3) / var(--ratio));
-  --s-3: calc(var(--s-2) / var(--ratio));
-  --s-2: calc(var(--s-1) / var(--ratio));
-  --s-1: calc(var(--s0) / var(--ratio));
-  --s0: 1rem;
-  --s1: calc(var(--s0) * var(--ratio));
-  --s2: calc(var(--s1) * var(--ratio));
-  --s3: calc(var(--s2) * var(--ratio));
-  --s4: calc(var(--s3) * var(--ratio));
   --s5: calc(var(--s4) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s1: calc(var(--s0) * var(--ratio));
+  --s0: 1rem;
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-5: calc(var(--s-4) / var(--ratio));
 
   /* TYPOGRAPHY */
   --font: "Latina Essential Light", sans-serif;
   --font-size: var(--s0);
   --line-height: var(--ratio);
   --measure: 70ch;
+
+  /* LAYOUT */
+  --left-border-width: var(--s-1);
 }
 
 /*     __        __   __            
@@ -38,8 +56,16 @@
  *    \__> |___ \__/ |__) /==\ |___ 
  */
 
-* {
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
   max-inline-size: var(--measure);
+  margin: 0;
+}
+
+html {
+  overscroll-behavior: none;
 }
 
 html,
@@ -98,7 +124,10 @@ h4 {
 }
 
 h1 {
-  --font-size: var(--s3);
+  --font-size: var(--s5);
+  -webkit-text-stroke: 3px black;
+  color: transparent;
+  text-shadow: 0.3rem 0.3rem var(--c-teal);
 }
 h2 {
   --font-size: var(--s2);
@@ -116,4 +145,62 @@ h4 {
   font-size: var(--font-size);
   line-height: var(--line-height);
   font-weight: normal;
+}
+
+p + p,
+p + pre,
+pre + p {
+  margin-block-start: var(--s0);
+}
+
+/*                   __       ___ 
+ *    |     /\  \ / /  \ |  |  |  
+ *    |___ /==\  |  \__/ \__/  |  
+ */
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--c-bg);
+  margin: 0;
+  margin-inline-start: var(--left-border-width);
+}
+
+body::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: calc(var(--left-border-width) * -1);
+  bottom: 0;
+  width: var(--left-border-width);
+  background: linear-gradient(
+    to bottom,
+    var(--c-teal),
+    var(--c-navy),
+    var(--c-violet)
+  );
+}
+
+/*         ___          ___    ___  __  
+ *    |  |  |  | |    |  |  | |__  /__` 
+ *    \__/  |  | |___ |  |  | |___ .__/ 
+ */
+
+/* Hide from visual display only
+   https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+*/
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.visually-hidden a:focus,
+.visually-hidden input:focus,
+.visually-hidden button:focus {
+  position: static;
+  width: auto;
+  height: auto;
 }
