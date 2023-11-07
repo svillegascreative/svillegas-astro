@@ -10,39 +10,42 @@ const webPosts = await getCollection("posts", ({ data }) => {
 ---
 
 <Document>
-  <h1>web stuff.</h1>
+  <article>
+    <h1>web stuff</h1>
 
-  <p>
-    By day, I am a Senior Software Engineer at <a
-      href="https://www.deloittedigital.ca">
-      Deloitte Digital
-    </a>. I focus heavily on crafting modern, memorable, maintainable, and
-    accessible UI. I believe the Web is for everyone! When not coding at work, I
-    sometimes hack around on personal projects (like taking far too many years
-    constantly rebuilding personal sites on fun new tech -- sound familiar?)
-  </p>
+    <p>
+      By day, I am a Senior Software Engineer at <a
+        href="https://www.deloittedigital.ca">
+        Deloitte Digital
+      </a>. I focus heavily on crafting modern, memorable, maintainable, and
+      accessible UI. I believe the Web is for everyone! When not coding at work,
+      I sometimes hack around on personal projects (like taking far too many
+      years constantly rebuilding personal sites on fun new tech -- sound
+      familiar?)
+    </p>
 
-  {
-    techSkills && (
-      <>
-        <h2 id="logo-soup">Tech soup:</h2>
-        <LogoSoup skills={techSkills} />
-      </>
-    )
-  }
+    {
+      techSkills && (
+        <>
+          <h2 id="logo-soup">Tech soup:</h2>
+          <LogoSoup skills={techSkills} />
+        </>
+      )
+    }
 
-  {
-    webPosts?.length > 0 && (
-      <>
-        <h2>Some posts about the web</h2>
-        <ul>
-          {webPosts.map((post) => (
-            <li>
-              <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-            </li>
-          ))}
-        </ul>
-      </>
-    )
-  }
+    {
+      webPosts?.length > 0 && (
+        <>
+          <h2>Some posts about the web</h2>
+          <ul>
+            {webPosts.map((post) => (
+              <li>
+                <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+              </li>
+            ))}
+          </ul>
+        </>
+      )
+    }
+  </article>
 </Document>

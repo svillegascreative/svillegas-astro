@@ -8,26 +8,28 @@ const horsePosts = await getCollection("posts", ({ data }) => {
 ---
 
 <Document>
-  <h1>horse stuff.</h1>
+  <article>
+    <h1>horse stuff</h1>
 
-  <p>
-    I am an equestrian, but I am decidedly <em>not</em> a "horse girl". I have been
-    riding since I was 12, and have worked several years in the equine industry as
-    a stable hand, riding school director, and professional groom.
-  </p>
+    <p>
+      I am an equestrian, but I am decidedly <em>not</em> a "horse girl". I have
+      been riding since I was 12, and have worked several years in the equine industry
+      as a stable hand, riding school director, and professional groom.
+    </p>
 
-  {
-    horsePosts?.length > 0 && (
-      <>
-        <h2>Some posts about horse things</h2>
-        <ul>
-          {horsePosts.map((post) => (
-            <li>
-              <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-            </li>
-          ))}
-        </ul>
-      </>
-    )
-  }
+    {
+      horsePosts?.length > 0 && (
+        <>
+          <h2>Some posts about horse things</h2>
+          <ul>
+            {horsePosts.map((post) => (
+              <li>
+                <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+              </li>
+            ))}
+          </ul>
+        </>
+      )
+    }
+  </article>
 </Document>

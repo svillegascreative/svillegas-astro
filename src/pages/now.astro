@@ -12,24 +12,26 @@ const { Content } = await latestNow.render();
 ---
 
 <Document>
-  <h1>now</h1>
+  <article>
+    <h1>now</h1>
 
-  <time datetime={latestNow.data.date}>{latestNow.data.date}</time>
+    <time datetime={latestNow.data.date}>{latestNow.data.date}</time>
 
-  <Content />
+    <Content />
 
-  {
-    previousNows && (
-      <>
-        <h2>previously...</h2>
-        <ul>
-          {previousNows.map((n) => (
-            <li>
-              <a href={`/previously/${n.data.date}`}>{n.data.date}</a>
-            </li>
-          ))}
-        </ul>
-      </>
-    )
-  }
+    {
+      previousNows && (
+        <>
+          <h2>previously...</h2>
+          <ul>
+            {previousNows.map((n) => (
+              <li>
+                <a href={`/previously/${n.data.date}`}>{n.data.date}</a>
+              </li>
+            ))}
+          </ul>
+        </>
+      )
+    }
+  </article>
 </Document>

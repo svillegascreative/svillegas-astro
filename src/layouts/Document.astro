@@ -7,7 +7,37 @@ import Footer from "../components/Footer.astro";
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<style>
+  body {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--c-bg);
+    margin: 0;
+    margin-inline-start: var(--left-border-width);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    text-rendering: optimizeLegibility;
+
+    ::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: calc(var(--left-border-width) * -1);
+      bottom: 0;
+      width: var(--left-border-width);
+      background: linear-gradient(
+        to bottom,
+        var(--c-teal),
+        var(--c-navy),
+        var(--c-violet)
+      );
+    }
+  }
+  main {
+    margin: 1rem;
+  }
+</style>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />

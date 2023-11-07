@@ -14,7 +14,18 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
+<style>
+  h1 {
+    --font-size: var(--s3);
+    text-shadow: none;
+    color: var(--c-teal);
+    -webkit-text-stroke-width: 0;
+  }
+</style>
+
 <Document>
-  <h1>{post.data.title}</h1>
-  <Content />
+  <article>
+    <h1>{post.data.title}</h1>
+    <Content />
+  </article>
 </Document>
