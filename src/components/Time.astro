@@ -1,0 +1,11 @@
+---
+// Convenient wrapper to display a formatted date and/or time
+
+import { formatDate } from "../utils/time";
+
+const { date, format } = Astro.props;
+---
+
+<time datetime={date}>
+  {formatDate(date, format)}
+</time>
