@@ -1,6 +1,5 @@
 ---
-import { convertStringToHTML } from "../utils/index";
-const { skills } = Astro.props;
+import skills from "../data/tech-skills.json";
 ---
 
 <style>
@@ -19,7 +18,8 @@ const { skills } = Astro.props;
           role="img"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
-          fill={skill.color}>
+          fill={skill.color}
+        >
           <title>{skill.name}</title>
           <Fragment set:html={skill.svgPath} />
         </svg>
