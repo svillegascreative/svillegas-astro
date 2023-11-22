@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Document from "../layouts/Document.astro";
-import techSkills from "../data/tech-skills.json";
+import Article from "../layouts/Article.astro";
 import LogoSoup from "../components/LogoSoup.astro";
 
 const webPosts = await getCollection("posts", ({ data }) => {
@@ -9,43 +8,40 @@ const webPosts = await getCollection("posts", ({ data }) => {
 });
 ---
 
-<Document>
-  <article>
-    <h1>web stuff</h1>
+<style>
+  .logo-soup {
+    margin-block: var(--s2);
+  }
+</style>
 
-    <p>
-      By day, I am a Senior Software Engineer at <a
-        href="https://www.deloittedigital.ca">
-        Deloitte Digital
-      </a>. I focus heavily on crafting modern, memorable, maintainable, and
-      accessible UI. I believe the Web is for everyone! When not coding at work,
-      I sometimes hack around on personal projects (like taking far too many
-      years constantly rebuilding personal sites on fun new tech -- sound
-      familiar?)
-    </p>
+<Article>
+  <h1>web</h1>
 
-    {
-      techSkills && (
-        <>
-          <h2 id="logo-soup">Tech soup:</h2>
-          <LogoSoup skills={techSkills} />
-        </>
-      )
-    }
+  <p class="lede">
+    I am primarily a "<a
+      href="https://bradfrost.com/blog/post/front-of-the-front-end-and-back-of-the-front-end-web-development/"
+      >front of the front end</a
+    >" web developer who's been building on the web since <code>marquee</code> was
+    cool, and I believe the web is for <em>everyone</em>.
+  </p>
 
-    {
-      webPosts?.length > 0 && (
-        <>
-          <h2>Some posts about the web</h2>
-          <ul>
-            {webPosts.map((post) => (
-              <li>
-                <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-              </li>
-            ))}
-          </ul>
-        </>
-      )
-    }
-  </article>
-</Document>
+  <div class="logo-soup">
+    <h2 class="visually-hidden">Some technology I'vue used</h2>
+    <LogoSoup />
+  </div>
+
+  {
+    webPosts?.length > 0 && (
+      <>
+        <h2>Some posts about the web</h2>
+        <ul>
+          {webPosts.map((post) => (
+            <li>
+              <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+</Article>
