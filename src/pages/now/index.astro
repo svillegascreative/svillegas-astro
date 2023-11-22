@@ -1,0 +1,59 @@
+---
+import { getCollection } from "astro:content";
+import Time from "../../components/Time.astro";
+import Article from "../../layouts/Article.astro";
+import { formatDate } from "../../utils/time";
+
+const nows = await getCollection("now");
+const sortedNows = nows.sort(
+  (a, b) => +new Date(a.data.date) - +new Date(b.data.date)
+);
+const latestNow = sortedNows.slice(-1)[0];
+const previousNows = sortedNows.slice(0, -1);
+const { Content } = await latestNow.render();
+
+const nowDateFormat = "monthYear";
+---
+
+<style>
+  .now :global(ul) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s1);
+  }
+</style>
+
+<Article>
+  <h1>now</h1>
+
+  <p class="lede">
+    Quick little updates on what's going on <a href="https://sive.rs/nowff">
+      now
+    </a> in my life, career, etc. Here's the latest!
+  </p>
+
+  <h2>
+    <Time date={latestNow.data.date} format={nowDateFormat} />
+  </h2>
+
+  <div class="now">
+    <Content />
+  </div>
+
+  {
+    previousNows && (
+      <>
+        <h2>Previously...</h2>
+        <ul class="previously">
+          {previousNows.map((n) => (
+            <li>
+              <a href={`/now/${n.data.date}`}>
+                {formatDate(n.data.date, nowDateFormat)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+</Article>
