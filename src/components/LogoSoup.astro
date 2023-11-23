@@ -16,7 +16,7 @@ const skills = shuffle(techSkills);
     grid-template-columns: repeat(auto-fit, minmax(var(--grid-box-size), 1fr));
     grid-template-rows: repeat(auto-fit, var(--grid-box-size));
     grid-gap: var(--s-2);
-    grid-auto-flow: row-reverse dense;
+    grid-auto-flow: dense;
     align-items: center;
     aspect-ratio: 1/1;
   }
@@ -26,22 +26,45 @@ const skills = shuffle(techSkills);
     grid-row: span var(--grid-span);
     grid-column: span var(--grid-span);
 
+    svg {
+      display: block;
+      fill: lightgrey;
+      transition: all 0.3s ease;
+    }
+    span {
+      position: absolute;
+      left: 50%;
+      bottom: calc(-1 * var(--s3));
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      filter: drop-shadow(0 0 10px #fff);
+      padding: var(--s-4) var(--s-2);
+      border-radius: var(--s3);
+      border: 2px solid var(--skill-color);
+      font-weight: bold;
+      font-size: var(--s-1);
+      text-transform: uppercase;
+      white-space: nowrap;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
     &:hover {
       z-index: 2;
-    }
-  }
 
-  svg {
-    display: block;
-    fill: lightgrey;
-    transition: all 0.3s ease;
+      svg {
+        fill: var(--skill-color);
+        transform: scale(1.2);
+        transfor-origin: center;
+        transition: all 0.3s ease;
+        filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 20px #fff)
+          drop-shadow(0 0 20px #fff);
+      }
 
-    &:hover {
-      fill: var(--fill);
-      transform: scale(1.1);
-      transition: all 0.3s ease;
-      filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 20px #fff)
-        drop-shadow(0 0 20px #fff);
+      span {
+        opacity: 1;
+        transition: all 0.3s ease;
+      }
     }
   }
 </style>
@@ -49,16 +72,20 @@ const skills = shuffle(techSkills);
 <ul class="logo-soup" aria-label="tech tools">
   {
     skills.map((skill) => (
-      <li style={`--grid-span: ${+skill.weight + 3}`}>
+      <li
+        style={`--grid-span: ${+skill.weight + 3}; --skill-color: ${
+          skill.color
+        }`}
+      >
         <svg
           role="img"
+          aria-hidden
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
-          style={`--fill: ${skill.color}`}
         >
-          <title>{skill.name}</title>
           <Fragment set:html={skill.svgPath} />
         </svg>
+        <span>{skill.name}</span>
       </li>
     ))
   }
