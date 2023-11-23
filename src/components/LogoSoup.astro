@@ -1,24 +1,50 @@
 ---
-import skills from "../data/tech-skills.json";
+/* Displays a bunch of tech logos in a fun way! */
+
+import techSkills from "../data/tech-skills.json";
+import { shuffle } from "../utils/shuffle";
+
+const skills = shuffle(techSkills);
 ---
 
 <style>
+  ul {
+    --grid-box-size: var(--s-2);
+    list-style-type: "";
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--grid-box-size), 1fr));
+    grid-template-rows: repeat(auto-fit, var(--grid-box-size));
+    /* grid-auto-rows: var(--grid-box-size); */
+    grid-gap: var(--s-2);
+    grid-auto-flow: dense;
+  }
+
   li {
-    display: inline-block;
-    height: 2rem;
-    width: 2rem;
+    grid-row: span var(--grid-span);
+    grid-column: span var(--grid-span);
+  }
+
+  svg {
+    fill: lightgrey;
+    transition: all 0.3s ease;
+
+    &:hover {
+      fill: var(--fill);
+      transition: all 0.3s ease;
+    }
   }
 </style>
 
 <ul class="logo-soup" aria-labelledby="logo-soup">
   {
     skills.map((skill) => (
-      <li>
+      <li style={`--grid-span: ${+skill.weight + 3}`}>
         <svg
           role="img"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
-          fill={skill.color}
+          style={`--fill: ${skill.color}`}
         >
           <title>{skill.name}</title>
           <Fragment set:html={skill.svgPath} />
