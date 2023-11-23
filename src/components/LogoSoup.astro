@@ -17,21 +17,31 @@ const skills = shuffle(techSkills);
     grid-template-rows: repeat(auto-fit, var(--grid-box-size));
     grid-gap: var(--s-2);
     grid-auto-flow: row-reverse dense;
+    align-items: center;
+    aspect-ratio: 1/1;
   }
 
   li {
     position: relative;
     grid-row: span var(--grid-span);
     grid-column: span var(--grid-span);
+
+    &:hover {
+      z-index: 2;
+    }
   }
 
   svg {
+    display: block;
     fill: lightgrey;
     transition: all 0.3s ease;
 
     &:hover {
       fill: var(--fill);
+      transform: scale(1.1);
       transition: all 0.3s ease;
+      filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 20px #fff)
+        drop-shadow(0 0 20px #fff);
     }
   }
 </style>
