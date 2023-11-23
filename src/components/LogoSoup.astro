@@ -33,9 +33,8 @@ const skills = shuffle(techSkills);
     }
     span {
       position: absolute;
+      /* bottom: calc(-1 * var(--s3)); */
       left: 50%;
-      bottom: calc(-1 * var(--s3));
-      transform: translate(-50%, -50%);
       background-color: #fff;
       filter: drop-shadow(0 0 10px #fff);
       padding: var(--s-4) var(--s-2);
@@ -55,7 +54,7 @@ const skills = shuffle(techSkills);
       svg {
         fill: var(--skill-color);
         transform: scale(1.2);
-        transfor-origin: center;
+        transform-origin: center;
         transition: all 0.3s ease;
         filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 20px #fff)
           drop-shadow(0 0 20px #fff);
@@ -64,7 +63,22 @@ const skills = shuffle(techSkills);
       span {
         opacity: 1;
         transition: all 0.3s ease;
+        animation-name: reveal-name;
+        animation-delay: 1s;
+        animation-duration: 0.5s;
+        animation-fill-mode: both;
       }
+    }
+  }
+
+  @keyframes reveal-name {
+    from {
+      transform: translate(-50%, 0);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, 50%);
+      opacity: 1;
     }
   }
 </style>
