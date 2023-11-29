@@ -1,5 +1,6 @@
 import { defineCollection, z } from "astro:content";
 
+/** Things I'm selling, for a personal marketplace (maybe) */
 const forSaleCollection = defineCollection({
   type: "content",
   schema: z.object({
@@ -10,6 +11,7 @@ const forSaleCollection = defineCollection({
   }),
 });
 
+/** Updates posted in "/now" */
 const nowCollection = defineCollection({
   type: "content",
   schema: z.object({
@@ -17,12 +19,14 @@ const nowCollection = defineCollection({
   }),
 });
 
+/** Writing, collected in "/posts" */
 const postsCollection = defineCollection({
   type: "content",
   schema: z.object({
     date: z.date(),
     tags: z.array(z.string()).optional(),
     title: z.string(),
+    lede: z.string().optional(),
   }),
 });
 
