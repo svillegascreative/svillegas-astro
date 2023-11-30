@@ -1,19 +1,35 @@
 ---
+/**
+ * Page view for all writing/posts
+ */
+
 import { getCollection } from "astro:content";
-import Document from "../../layouts/Document.astro";
+import Article from "../../layouts/Article.astro";
+import PostCard from "../../components/PostCard.astro";
 
 const posts = await getCollection("posts");
 ---
 
-<Document>
+<style>
+  .posts {
+    list-style-type: "";
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s2);
+  }
+</style>
+
+<Article>
   <h1>writing</h1>
-  <ul>
+
+  <ul role="list" class="posts">
     {
       posts.map((post) => (
         <li>
-          <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+          <PostCard post={post} />
         </li>
       ))
     }
   </ul>
-</Document>
+</Article>
