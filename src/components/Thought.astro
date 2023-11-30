@@ -3,24 +3,30 @@ const { thought } = Astro.props;
 ---
 
 <style>
+  article {
+    background-color: var(--c-teal-l2);
+    border-radius: var(--s-1);
+    padding: var(--s0);
+  }
+
   time {
     display: block;
   }
 </style>
 
-<!--  -->
+<article>
+  {thought.text}
 
-{thought.text}
-
-<time datetime={thought._createdAt}>
-  {
-    new Intl.DateTimeFormat("en-CA", {
-      year: "numeric",
-      month: "numeric",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      timeZone: "America/Toronto",
-    }).format(new Date(thought._createdAt))
-  }
-</time>
+  <time datetime={thought._createdAt}>
+    {
+      new Intl.DateTimeFormat("en-CA", {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        timeZone: "America/Toronto",
+      }).format(new Date(thought._createdAt))
+    }
+  </time>
+</article>

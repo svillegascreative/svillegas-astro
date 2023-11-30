@@ -9,17 +9,28 @@ const sortedThoughts = thoughts.sort(
 );
 ---
 
-<Document>
-  <h1>thoughts.</h1>
+<style>
+  .thoughts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .thoughts-list li + li {
+    margin-block-start: var(--s2);
+  }
+</style>
 
-  <p>
+<Document>
+  <h1>thoughts</h1>
+
+  <p class="lede">
     Just a place to post some of my miscellaneous thoughts, since I don't want
     to do so on the blue bird app anymore.
   </p>
 
   {
     sortedThoughts && (
-      <ul>
+      <ul class="thoughts-list">
         {sortedThoughts.map((thought) => (
           <li>
             <Thought thought={thought} />
