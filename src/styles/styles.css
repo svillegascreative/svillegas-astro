@@ -42,13 +42,12 @@
   --s-5: calc(var(--s-4) / var(--ratio));
 
   /* TYPOGRAPHY */
-  --font: "Latina Essential Light", sans-serif;
+  --font-light: "Latina Essential Light", sans-serif;
+  --font-heavy: "Latina Essential Heavy", serif;
+  --font: var(--font-light);
   --font-size: var(--s0);
   --line-height: var(--ratio);
   --measure: 70ch;
-
-  /* LAYOUT */
-  --left-border-width: var(--s-1);
 }
 
 /*     __        __   __            
@@ -61,19 +60,18 @@
 *:after {
   box-sizing: border-box;
   margin: 0;
-  font-family: var(--font);
-  font-size: var(--font-size);
-  line-height: var(--line-height);
-  font-weight: normal;
-
-  &::selection {
-    background-color: var(--c-navy);
-    color: white;
-  }
 }
 
 html {
   overscroll-behavior: none;
+}
+
+body {
+  font-size: var(--font-size);
+  font-family: var(--font);
+  line-height: var(--line-height);
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
 }
 
 /*     ___  __       ___  __  
@@ -87,6 +85,16 @@ html {
     url("../fonts/LatinaEssential-Light.woff2") format("woff2"),
     url("../fonts/LatinaEssential-Light.woff") format("woff");
   font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Latina Essential Light";
+  src: url("../fonts/LatinaEssential-Bold.eot") format("embedded-opentype"),
+    url("../fonts/LatinaEssential-Bold.woff2") format("woff2"),
+    url("../fonts/LatinaEssential-Bold.woff") format("woff");
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
@@ -121,8 +129,6 @@ h2,
 h3,
 h4,
 p,
-ul:not([role="list"]),
-ol:not([role="list"]),
 dl,
 pre,
 code,
@@ -130,54 +136,71 @@ blockquote {
   max-inline-size: var(--measure);
 }
 
+::selection {
+  background-color: var(--c-navy);
+  color: white;
+}
+
 h1,
 h2,
 h3,
 h4 {
-  --font: "Latina Essential Heavy", serif;
-  --line-height: 1.2;
+  --font: var(--font-heavy);
+
+  font-size: var(--font-size);
+  font-family: var(--font);
+  line-height: 1.2;
 }
 
 h1 {
   --font-size: var(--s5);
+  --measure: 30ch;
   -webkit-text-stroke: 3px var(--c-navy);
   color: transparent;
-  text-shadow: 0.03em 0.03em var(--c-teal);
-  margin-block-end: var(--s3);
+  text-shadow: 0.05em 0.03em var(--c-teal);
 }
 
 h2 {
   --font-size: var(--s2);
-  margin-block: var(--s2);
+  --measure: 40ch;
+  margin-block-start: var(--s3);
   color: var(--c-navy);
 }
 
 h3 {
   --font-size: var(--s1);
+  --measure: 50ch;
 }
 
 a {
-  text-decoration: none;
-}
-
-a:not([class]) {
+  position: relative;
+  color: currentColor;
   --line-height: 1;
-  color: var(--c-violet);
-  display: inline-block;
-  border-bottom: 2px solid var(--c-violet-light);
+  text-decoration-color: var(--c-violet-light);
+  text-decoration-thickness: 0.2ex;
+  text-underline-offset: 0.5ex;
   transition: 0.5s all ease;
-  padding: 2px;
 
-  &:hover {
-    background-color: var(--c-violet-lighter);
+  &::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    height: 0;
+    left: 0;
+    right: 0;
+    bottom: -0.5ex;
     transition: 0.5s all ease;
   }
-}
 
-p + p,
-p + pre,
-pre + p {
-  margin-block-start: var(--s0);
+  &:hover {
+    text-underline-offset: 0.8ex;
+
+    &::before {
+      background-color: var(--c-violet-lighter);
+      transition: 0.5s all ease;
+      height: 150%;
+    }
+  }
 }
 
 code,
@@ -186,14 +209,14 @@ pre {
   color: var(--c-navy);
 }
 
-ul[role="list"],
-ol[role="list"] {
-  list-style: none;
-}
-
 .lede {
+  --measure: 60ch;
   font-size: var(--s1);
   line-height: 1.2;
+
+  + * {
+    margin-block-start: var(--s4);
+  }
 }
 
 /*     ___       ___        ___      ___  __  

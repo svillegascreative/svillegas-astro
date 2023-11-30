@@ -1,4 +1,8 @@
 ---
+/**
+ * Renders current "now" updates, and links to previous ones.
+ */
+
 import { getCollection } from "astro:content";
 import Time from "../../components/Time.astro";
 import Article from "../../layouts/Article.astro";
@@ -16,10 +20,10 @@ const nowDateFormat = "monthYear";
 ---
 
 <style>
-  .now :global(ul) {
-    display: flex;
-    flex-direction: column;
-    gap: var(--s1);
+  .previously {
+    li + li {
+      margin-block-start: 0;
+    }
   }
 </style>
 

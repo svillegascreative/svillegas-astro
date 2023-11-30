@@ -1,8 +1,18 @@
 ---
-// Convenience layout, for pages where the entire content is a single article.
+/**
+ * Convenience layout, for pages where the entire content is a single article.
+ */
 
 import Document from "../layouts/Document.astro";
 ---
+
+<style>
+  article {
+    > * + * {
+      margin-block-start: var(--s0);
+    }
+  }
+</style>
 
 <Document>
   <article>
