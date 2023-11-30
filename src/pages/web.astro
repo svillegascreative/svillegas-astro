@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Article from "../layouts/Article.astro";
 import LogoSoup from "../components/LogoSoup.astro";
+import PostList from "../components/PostList.astro";
 
 const webPosts = await getCollection("posts", ({ data }) => {
   return data.tags?.includes("web");
@@ -26,7 +27,7 @@ const webPosts = await getCollection("posts", ({ data }) => {
   </p>
 
   <div class="logo-soup">
-    <h2 class="visually-hidden">Some technology I'vue used</h2>
+    <h2 class="visually-hidden">Some technology I've used</h2>
     <LogoSoup />
   </div>
 
@@ -34,13 +35,8 @@ const webPosts = await getCollection("posts", ({ data }) => {
     webPosts?.length > 0 && (
       <>
         <h2>Some posts about the web</h2>
-        <ul>
-          {webPosts.map((post) => (
-            <li>
-              <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-            </li>
-          ))}
-        </ul>
+
+        <PostList posts={webPosts} />
       </>
     )
   }
