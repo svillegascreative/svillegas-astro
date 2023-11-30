@@ -1,0 +1,54 @@
+---
+/**
+ * Renders a card representing (and linking to) a post
+ */
+
+const { post } = Astro.props;
+---
+
+<style>
+  a {
+    font-family: var(--font-heavy);
+    font-size: var(--s1);
+  }
+
+  time {
+    text-transform: uppercase;
+  }
+
+  .tags {
+    list-style-type: "";
+    display: inline-flex;
+    gap: var(--s-2);
+    padding: 0;
+
+    li {
+      text-transform: uppercase;
+    }
+  }
+</style>
+
+<article>
+  <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+
+  <p>{post.data.lede}</p>
+
+  <time>
+    {
+      new Intl.DateTimeFormat("en-CA", {
+        dateStyle: "medium",
+        timeZone: "America/Toronto",
+      }).format(new Date(post.data.date))
+    }
+  </time>
+
+  {
+    post.data.tags && (
+      <ul role="list" class="tags">
+        {post.data.tags.map((tag) => (
+          <li>{tag}</li>
+        ))}
+      </ul>
+    )
+  }
+</article>
