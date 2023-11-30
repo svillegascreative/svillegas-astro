@@ -5,31 +5,13 @@
 
 import { getCollection } from "astro:content";
 import Article from "../../layouts/Article.astro";
-import PostCard from "../../components/PostCard.astro";
+import PostList from "../../components/PostList.astro";
 
 const posts = await getCollection("posts");
 ---
 
-<style>
-  .posts {
-    list-style-type: "";
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--s2);
-  }
-</style>
-
 <Article>
   <h1>writing</h1>
 
-  <ul role="list" class="posts">
-    {
-      posts.map((post) => (
-        <li>
-          <PostCard post={post} />
-        </li>
-      ))
-    }
-  </ul>
+  <PostList posts={posts} />
 </Article>
