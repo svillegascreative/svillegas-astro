@@ -17,6 +17,7 @@ const previousNows = sortedNows.slice(0, -1);
 const { Content } = await latestNow.render();
 
 const nowDateFormat = "monthYear";
+const title = "now";
 ---
 
 <style>
@@ -27,8 +28,8 @@ const nowDateFormat = "monthYear";
   }
 </style>
 
-<Article>
-  <h1>now</h1>
+<Article title={title}>
+  <h1>{title}</h1>
 
   <p class="lede">
     Quick little updates on what's going on <a href="https://sive.rs/nowff">

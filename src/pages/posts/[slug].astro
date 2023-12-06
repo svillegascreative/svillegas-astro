@@ -23,7 +23,7 @@ const { Content } = await post.render();
   }
 </style>
 
-<Article>
+<Article title={post.data.title}>
   <h1>{post.data.title}</h1>
 
   <p class="lede">{post.data.lede}</p>

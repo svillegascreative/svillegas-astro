@@ -1,35 +1,35 @@
 ---
 import { getCollection } from "astro:content";
-import Document from "../layouts/Document.astro";
+import Article from "../layouts/Article.astro";
 
 const horsePosts = await getCollection("posts", ({ data }) => {
   return data.tags?.includes("horses");
 });
+
+const title = "horse stuff";
 ---
 
-<Document>
-  <article>
-    <h1>horse stuff</h1>
+<Article title={title}>
+  <h1>{title}</h1>
 
-    <p>
-      I am an equestrian, but I am decidedly <em>not</em> a "horse girl". I have
-      been riding since I was 12, and have worked several years in the equine industry
-      as a stable hand, riding school director, and professional groom.
-    </p>
+  <p>
+    I am an equestrian, but I am decidedly <em>not</em> a "horse girl". I have been
+    riding since I was 12, and have worked several years in the equine industry as
+    a stable hand, riding school director, and professional groom.
+  </p>
 
-    {
-      horsePosts?.length > 0 && (
-        <>
-          <h2>Some posts about horse things</h2>
-          <ul>
-            {horsePosts.map((post) => (
-              <li>
-                <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-              </li>
-            ))}
-          </ul>
-        </>
-      )
-    }
-  </article>
-</Document>
+  {
+    horsePosts?.length > 0 && (
+      <>
+        <h2>Some posts about horse things</h2>
+        <ul>
+          {horsePosts.map((post) => (
+            <li>
+              <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+</Article>

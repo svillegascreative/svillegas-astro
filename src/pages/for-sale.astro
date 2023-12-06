@@ -1,30 +1,29 @@
 ---
 import { getCollection } from "astro:content";
-import Document from "../layouts/Document.astro";
+import Article from "../layouts/Article.astro";
 
 const forSale = await getCollection("for-sale");
+const title = "for sale";
 ---
 
-<Document>
-  <article>
-    <h1>for sale</h1>
-    <ul>
-      {
-        forSale.map((item) => (
-          <li>
-            <h2>{item.data.title}</h2>
-            <p>{item.data.price}</p>
-            <ul>
-              {item.data.photos.map((photo) => (
-                <li>
-                  <img src={photo} />
-                </li>
-              ))}
-            </ul>
-            <p>{item.data.description}</p>
-          </li>
-        ))
-      }
-    </ul>
-  </article>
-</Document>
+<Article title={title}>
+  <h1>{title}</h1>
+  <ul>
+    {
+      forSale.map((item) => (
+        <li>
+          <h2>{item.data.title}</h2>
+          <p>{item.data.price}</p>
+          <ul>
+            {item.data.photos.map((photo) => (
+              <li>
+                <img src={photo} />
+              </li>
+            ))}
+          </ul>
+          <p>{item.data.description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</Article>

@@ -3,6 +3,8 @@
 
 import LogoSoup from "../components/LogoSoup.astro";
 import Article from "../layouts/Article.astro";
+
+const title = "hire me";
 ---
 
 <style>
@@ -47,8 +49,8 @@ import Article from "../layouts/Article.astro";
   }
 </style>
 
-<Article>
-  <h1>hire me</h1>
+<Article title={title}>
+  <h1>{title}</h1>
 
   <p class="lede">
     Hi, I'm <strong>sylvia</strong>. I'm a Front End Developer with a focus on <strong
