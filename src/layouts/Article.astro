@@ -4,6 +4,8 @@
  */
 
 import Document from "../layouts/Document.astro";
+
+const { title } = Astro.props;
 ---
 
 <style>
@@ -14,7 +16,7 @@ import Document from "../layouts/Document.astro";
   }
 </style>
 
-<Document>
+<Document title={title}>
   <article>
     <slot />
   </article>
