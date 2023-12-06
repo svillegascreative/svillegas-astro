@@ -14,7 +14,7 @@ const { now } = Astro.props;
 const { Content } = await now.render();
 ---
 
-<Document>
+<Document title={`"Now" on ${now.data.date}`}>
   <h1>{now.data.date}</h1>
   <Content />
 </Document>
