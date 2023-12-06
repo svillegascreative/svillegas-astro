@@ -5,21 +5,149 @@ import LogoSoup from "../components/LogoSoup.astro";
 import Article from "../layouts/Article.astro";
 ---
 
+<style>
+  figure {
+    display: inline-block;
+    position: relative;
+    aspect-ratio: 1/1;
+    float: right;
+
+    &::before {
+      position: absolute;
+      content: "";
+      inset: 0;
+      border-radius: 50%;
+      background-image: linear-gradient(
+        to bottom,
+        var(--c-teal-dark) 0,
+        var(--c-navy) 50%,
+        var(--c-violet) 100%
+      );
+      opacity: 0.4;
+      mix-blend-mode: color;
+    }
+
+    img {
+      filter: brightness(0.6) saturate(50%);
+      border-radius: 50%;
+      mix-blend-mode: color-burn;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: 5%;
+      left: -7%;
+      width: 115%;
+      height: 86%;
+      border: 3px solid var(--c-navy);
+      border-radius: 50%;
+      transform: rotate(20deg);
+    }
+  }
+</style>
+
 <Article>
   <h1>hire me</h1>
 
   <p class="lede">
-    I'm a Front End Developer with a focus on <strong
-      >accessibility and design systems</strong
-    >, currently looking for a full-time permanent or contract role.
+    Hi, I'm <strong>sylvia</strong>. I'm a Front End Developer with a focus on <strong
+      >accessibility</strong
+    > and <strong>design systems</strong>, currently looking for a full-time
+    permanent or contract role.
   </p>
 
-  <a href="https://linkedin.com/in/sylviavillegas">LinkedIn</a>
-  <a href="https://github.com/svillegascreative">Github</a>
-  <a href="">Resume</a>
+  <h2>About me</h2>
+  <figure>
+    <img
+      src="https://res.cloudinary.com/cdemo/image/upload/c_crop,g_face,ar_1:1,w_600/q_auto,f_auto/svillegas/img-0.jpg"
+      alt="Headshot of sylvia in front of a soft studio backdrop. She is dressed casually in a dark blue hoodie. Her wavy, shoulder-length hair is pulled away from the top of her forehead, and she is looking at the camera, smiling."
+      width="300"
+      height="300"
+    />
+  </figure>
+  <p>
+    I was a long-time self-taught amateur web developer who finally decided to
+    take an intensive web development bootcamp and make a career of it. In the
+    last 6 years, I've worked at both a small agency and a large consultancy
+    with a variety of clients, collaborating on multi-disciplinary teams from
+    planning and design stages through to execution and delivery.
+  </p>
+  <p>
+    My current focus lies on both the <abbr title="User eXperience">UX</abbr> and
+    <abbr title="Developer eXperience">DX</abbr> of beautiful, clear, perfomrant
+    user interfaces. I am fanatic about usability, and especially accessibility,
+    because I believe that <strong>the web is for everyone</strong> and no one should
+    be left out. I am fluent in design- and engineer-speak, and move comfortably
+    across teams, helping to translate ideas and solve complex user problems. Design
+    systems are my love language and code is my craft.
+  </p>
+
+  <h2>What I can do</h2>
+  <h3>I've helped clients</h3>
+  <ul>
+    <li>
+      Planned and developed new features for an online concierge and tenant
+      engagement sevices platform
+    </li>
+    <li>
+      Built a user-friendly interface for calculating shipping with a large
+      postal service
+    </li>
+    <li>
+      Built a platform with paired interfaces to replace a paper application
+      pocess as part of a COVID-accelerated digital transformation process in
+      the federal government
+    </li>
+    <li>
+      Quickly built numerous brand and campaign microsites for a national
+      grocery and retail enterprise
+    </li>
+    <li>
+      Improved key performance metrics (raised to consistently green values on
+      Lighthouse) on 5 key landing pages for an online insurance provider by
+      building them with a static site generator, pulling from their existing
+      CMS and maintaining pixel-perfect visual consistency
+    </li>
+    <li>
+      Replatformed a higher-education training portal for an independent
+      professional development community
+    </li>
+  </ul>
+
+  <h3>I've also served in-house teams and colleagues</h3>
+  <ul>
+    <!-- <li>
+      build a tool for small businesses to find appropriate funding suport
+      during COVID lockdowns
+    </li> -->
+    <li>
+      Jointly led, taught, and engaged an internal "guild" of UI Engineers
+    </li>
+    <li>
+      Launched a team standards and best practices guide for React applications
+    </li>
+    <li>Participated in a task force solutioning a design systems offering</li>
+    <li>
+      Established an internal Accessibility Resource Team to support
+      cross-discipline accessibility training and education
+    </li>
+    <li>
+      Developed material for the engineering module in an upcoming Accessibility
+      Mastercourse
+    </li>
+    <li>Coached and mentored junior developers</li>
+  </ul>
+
+  <h3>Tech skills</h3>
+  <p>
+    I'm highly adaptable, and have experience with a wide range of tools and
+    technologies. If I haven't tried your whole stack, I've probably been close,
+    and I'm always ready to learn the rest.
+  </p>
+  <LogoSoup />
 
   <h2>What I'm looking for</h2>
-
   <p>
     I'm looking to join a team that cares about building excellent experiences,
     both for developers and for end users. We will work on collaborative systems
@@ -32,11 +160,8 @@ import Article from "../layouts/Article.astro";
 
   <p>Gosh, we really make a great team, don't we!?</p>
 
-  <h2>Tech skills</h2>
-  <p>
-    I'm highly adaptable, and have experience with a wide range of tools and
-    technologies. If I haven't tried your whole stack, I've probably been close
-    enough.
-  </p>
-  <LogoSoup />
+  <h2>More info</h2>
+  <a href="https://linkedin.com/in/sylviavillegas">LinkedIn</a>
+  <a href="https://github.com/svillegascreative">Github</a>
+  <a href="">Resume</a>
 </Article>
