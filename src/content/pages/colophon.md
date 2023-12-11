@@ -30,7 +30,8 @@ love the one I had been using. I've since switched to <b>Latina Essential
 Heavy</b>, not just to stick within the font family, but mostly because it
 reminds me so much of the block letters I used to use for headings in my
 notebooks growing up, complete with fun angles. [And those oblong tittles are
-too adorable!] The script in the logotype is my own handwriting.
+too adorable!] The script in the logotype is my own handwriting. Font scaling
+was handled with <a href="https://utopia.fyi">Utopia</a>.
 
 ## Development & Deployment
 
