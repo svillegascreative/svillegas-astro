@@ -1,0 +1,30 @@
+---
+/**
+ * Layout for most pages
+ */
+import Document from "./Document.astro";
+
+const { h1, lede, title } = Astro.props;
+---
+
+<style>
+  h1 {
+    --font: var(--font-heavy);
+    --font-size: var(--s5);
+    --measure: 30ch;
+    -webkit-text-stroke: 3px var(--c-navy);
+    color: transparent;
+    text-shadow: 0.05em 0.03em var(--c-teal);
+  }
+</style>
+
+<Document title={title}>
+  <article>
+    <header>
+      <h1>{h1 || title}</h1>
+      {lede && <p class="lede">{lede}</p>}
+    </header>
+
+    <slot />
+  </article>
+</Document>

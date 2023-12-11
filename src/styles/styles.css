@@ -151,7 +151,7 @@ h4 {
   font-family: var(--font);
   line-height: 1.2;
 }
-
+/* 
 h1 {
   --font: var(--font-heavy);
   --font-size: var(--s5);
@@ -159,7 +159,7 @@ h1 {
   -webkit-text-stroke: 3px var(--c-navy);
   color: transparent;
   text-shadow: 0.05em 0.03em var(--c-teal);
-}
+} */
 
 h2 {
   --font: var(--font-heavy);
