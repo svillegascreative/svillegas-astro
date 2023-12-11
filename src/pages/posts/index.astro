@@ -4,16 +4,14 @@
  */
 
 import { getCollection } from "astro:content";
-import Document from "../../layouts/Document.astro";
+import Page from "../../layouts/Page.astro";
 import PostList from "../../components/PostList.astro";
 
 const posts = await getCollection("posts");
 ---
 
-<Document title="writing">
-  <h1>writing</h1>
-
-  <p class="lede">I'm not much of a writer yet, but I'm trying.</p>
+<Page title="writing">
+  <p class="lede" slot="lede">I'm not much of a writer yet, but I'm trying.</p>
 
   <PostList posts={posts} />
-</Document>
+</Page>

@@ -1,7 +1,7 @@
 ---
 import { useSanityClient } from "astro-sanity";
 import Thought from "../../components/Thought.astro";
-import Document from "../../layouts/Document.astro";
+import Page from "../../layouts/Page.astro";
 
 const thoughts = await useSanityClient().fetch(`*[_type == "thought"]`);
 const sortedThoughts = thoughts.sort(
@@ -20,10 +20,8 @@ const sortedThoughts = thoughts.sort(
   }
 </style>
 
-<Document title="thoughts">
-  <h1>thoughts</h1>
-
-  <p class="lede">
+<Page title="thoughts">
+  <p class="lede" slot="lede">
     Just a place to post some of my miscellaneous thoughts, since I don't want
     to do so on the blue bird app anymore.
   </p>
@@ -39,4 +37,4 @@ const sortedThoughts = thoughts.sort(
       </ul>
     )
   }
-</Document>
+</Page>
