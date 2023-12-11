@@ -1,8 +1,9 @@
-# colophon
-
-<p class="lede">This, my personal website &mdash; like so many developer projects &mdash; is
-under constant iteration and never seems to be complete. Here are some
-technical details and general nerdery about this website.</p>
+---
+lede:
+  "This, my personal website (like so many developer projects) is under constant
+  iteration and never seems to be complete. Here are some technical details and
+  general nerdery about this website."
+---
 
 ## Design
 
@@ -38,7 +39,7 @@ standards-compliant HTML and CSS was hand-coded in
 <a href="https://code.visualstudio.com/">VS Code</a>. Images are hosted on
 <a href="https://cloudinary.com">Cloudinary</a> and some data is hosted on
 <a href="https://sanity.io">Sanity</a>. The repository is hosted on
-<a href="https://github.com/svillegascreative/svillegas-astro"> Github</a>, and
+<a href="https://github.com/svillegascreative/svillegas-astro">Github</a>, and
 deployed with <a href="https://netlify.com">Netlify</a>. Isn't the JAMstack fun?
 
 ## Accessibility

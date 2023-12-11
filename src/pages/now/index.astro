@@ -5,7 +5,7 @@
 
 import { getCollection } from "astro:content";
 import Time from "../../components/Time.astro";
-import Article from "../../layouts/Article.astro";
+import Page from "../../layouts/Page.astro";
 import { formatDate } from "../../utils/time";
 
 const nows = await getCollection("now");
@@ -17,7 +17,6 @@ const previousNows = sortedNows.slice(0, -1);
 const { Content } = await latestNow.render();
 
 const nowDateFormat = "monthYear";
-const title = "now";
 ---
 
 <style>
@@ -28,13 +27,10 @@ const title = "now";
   }
 </style>
 
-<Article title={title}>
-  <h1>{title}</h1>
-
-  <p class="lede">
-    Quick little updates on what's going on <a href="https://sive.rs/nowff">
-      now
-    </a> in my life, career, etc. Here's the latest!
+<Page title="now">
+  <p class="lede" slot="lede">
+    Quick little updates on what's going on
+    <a href="https://sive.rs/nowff">now</a> in my life, career, etc. Here's the latest!
   </p>
 
   <h2>
@@ -61,4 +57,4 @@ const title = "now";
       </>
     )
   }
-</Article>
+</Page>

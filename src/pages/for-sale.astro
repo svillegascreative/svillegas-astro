@@ -1,13 +1,11 @@
 ---
 import { getCollection } from "astro:content";
-import Article from "../layouts/Article.astro";
+import Page from "../layouts/Page.astro";
 
 const forSale = await getCollection("for-sale");
-const title = "for sale";
 ---
 
-<Article title={title}>
-  <h1>{title}</h1>
+<Page title="for sale">
   <ul>
     {
       forSale.map((item) => (
@@ -26,4 +24,4 @@ const title = "for sale";
       ))
     }
   </ul>
-</Article>
+</Page>

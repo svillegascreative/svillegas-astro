@@ -1,12 +1,12 @@
 ---
 import { getEntry } from "astro:content";
-import Article from "../layouts/Article.astro";
+import Page from "../layouts/Page.astro";
 
 const post = await getEntry("pages", "colophon");
 
 const { Content } = await post.render();
 ---
 
-<Article title="colophon">
+<Page title="colophon" lede={post.data.lede}>
   <Content />
-</Article>
+</Page>

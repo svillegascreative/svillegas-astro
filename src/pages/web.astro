@@ -1,13 +1,12 @@
 ---
 import { getCollection } from "astro:content";
-import Article from "../layouts/Article.astro";
+import Page from "../layouts/Page.astro";
 import LogoSoup from "../components/LogoSoup.astro";
 import PostList from "../components/PostList.astro";
 
 const webPosts = await getCollection("posts", ({ data }) => {
   return data.tags?.includes("web");
 });
-const title = "web";
 ---
 
 <style>
@@ -16,10 +15,8 @@ const title = "web";
   }
 </style>
 
-<Article title={title}>
-  <h1>{title}</h1>
-
-  <p class="lede">
+<Page title="web">
+  <p class="lede" slot="lede">
     I am primarily a "<a
       href="https://bradfrost.com/blog/post/front-of-the-front-end-and-back-of-the-front-end-web-development/"
       >front of the front end</a
@@ -41,4 +38,4 @@ const title = "web";
       </>
     )
   }
-</Article>
+</Page>
