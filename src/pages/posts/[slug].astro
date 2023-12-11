@@ -1,6 +1,9 @@
 ---
+/**
+ * Handles layout and rendering of each blog post
+ */
 import { getCollection } from "astro:content";
-import Article from "../../layouts/Article.astro";
+import Document from "../../layouts/Document.astro";
 
 export async function getStaticPaths() {
   const postCollection = await getCollection("posts");
@@ -23,10 +26,13 @@ const { Content } = await post.render();
   }
 </style>
 
-<Article title={post.data.title}>
-  <h1>{post.data.title}</h1>
+<Document title={post.data.title}>
+  <article>
+    <header>
+      <h1>{post.data.title}</h1>
+      <p class="lede">{post.data.lede}</p>
+    </header>
 
-  <p class="lede">{post.data.lede}</p>
-
-  <Content />
-</Article>
+    <Content />
+  </article>
+</Document>
