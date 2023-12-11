@@ -11,6 +11,10 @@ const { h1, lede, title } = Astro.props;
 ---
 
 <style>
+  header {
+    margin-block-end: var(--s5);
+  }
+
   h1 {
     --font: var(--font-heavy);
     --font-size: var(--s5);
@@ -22,7 +26,7 @@ const { h1, lede, title } = Astro.props;
 </style>
 
 <Document title={title}>
-  <article>
+  <article class="gappy">
     <header>
       <h1>{h1 || title}</h1>
 

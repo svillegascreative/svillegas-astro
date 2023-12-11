@@ -74,6 +74,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+:where(.gappy > * + *) {
+  margin-block-start: var(--s0);
+}
+
 /*     ___  __       ___  __  
  *    |__  /  \ |\ |  |  /__` 
  *    |    \__/ | \|  |  .__/ 
@@ -151,21 +155,13 @@ h4 {
   font-family: var(--font);
   line-height: 1.2;
 }
-/* 
-h1 {
-  --font: var(--font-heavy);
-  --font-size: var(--s5);
-  --measure: 30ch;
-  -webkit-text-stroke: 3px var(--c-navy);
-  color: transparent;
-  text-shadow: 0.05em 0.03em var(--c-teal);
-} */
 
 h2 {
   --font: var(--font-heavy);
   --font-size: var(--s2);
   --measure: 40ch;
   margin-block-start: var(--s3);
+  margin-block-end: var(--s1);
   color: var(--c-navy);
 }
 
@@ -216,7 +212,6 @@ pre {
   --measure: 60ch;
   font-size: var(--s1);
   line-height: 1.2;
-  margin-block-end: var(--s5);
 }
 
 /*     ___       ___        ___      ___  __  
