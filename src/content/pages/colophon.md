@@ -11,8 +11,10 @@ The completely responsive design is entirely my own, handcrafted within the
 browser, amid excruciating indecision and paralyzing doubt.
 
 Tech logos in the "logo soup" are from <a href="https://simpleicons.org">Simple
-Icons</a>. (<a href="https://github.com/simple-icons/simple-icons/pull/1698">I
-contributed</a> the original Eleventy one!)
+Icons</a>. [<a href="https://github.com/simple-icons/simple-icons/pull/1698">I
+contributed</a> the original Eleventy one!] All other icons are from the
+<a href="https://www.svgrepo.com/collection/arcticons-thin-line-icons/">Arcticons</a>
+collection on <a href="https://www.svgrepo.com/">SVG Repo</a>.
 
 The site logo is a simple 5-set Venn diagram, because I love Venn diagrams,
 pentameric design, rotational symmetry, ellipses, and the intersections and
