@@ -1,5 +1,7 @@
 ---
-/* Displays a bunch of tech logos in a fun way! */
+/**
+ * Displays a bunch of tech logos in a fun way!
+ */
 
 import techSkills from "../data/tech-skills.json";
 import { shuffle } from "../utils/shuffle";
@@ -9,13 +11,13 @@ const skills = shuffle(techSkills);
 
 <style>
   ul {
-    --grid-box-size: 10px;
+    --grid-box-size: var(--s-4);
     list-style-type: ""; /* removes markers */
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--grid-box-size), 1fr));
     grid-template-rows: repeat(auto-fit, var(--grid-box-size));
-    grid-gap: 5px;
+    grid-gap: var(--s-4);
     grid-auto-flow: dense;
     max-inline-size: unset !important; /* TODO: fix rule in styles.css */
   }
@@ -80,6 +82,23 @@ const skills = shuffle(techSkills);
       opacity: 1;
     }
   }
+
+  .spacer-1 {
+    grid-row: 1 / span 3;
+    grid-column: 1 / span 5;
+  }
+
+  .spacer-2 {
+    grid-row: 1 / span 4;
+    grid-column: -7 / span 4;
+  }
+
+  @media (min-width: 600px) {
+    .spacer-3 {
+      grid-row: 1 / span 2;
+      grid-column: 12 / span 12;
+    }
+  }
 </style>
 
 <ul class="logo-soup" aria-label="tech tools">
@@ -104,7 +123,7 @@ const skills = shuffle(techSkills);
   }
 
   <!-- These are placed in the top row pseudo-randomly to create an uneven edge -->
-  <li aria-hidden style="grid-row: 1 / span 3; grid-column: 1 / span 5"></li>
-  <li aria-hidden style="grid-row: 1 / span 2; grid-column: 12 / span 12"></li>
-  <li aria-hidden style="grid-row: 1 / span 4; grid-column: -7 / span 4"></li>
+  <li aria-hidden class="spacer-1"></li>
+  <li aria-hidden class="spacer-2"></li>
+  <li aria-hidden class="spacer-3"></li>
 </ul>
