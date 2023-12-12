@@ -39,6 +39,8 @@
   --s0: clamp(0.9375rem, 0.7813rem + 0.625vw, 1.25rem);
   --s-1: clamp(0.7813rem, 0.7031rem + 0.3125vw, 0.9375rem);
   --s-2: clamp(0.6513rem, 0.625rem + 0.105vw, 0.7038rem);
+  --s-3: clamp(0.5275rem, 0.7234rem + -0.2612vw, 0.6581rem);
+  --s-4: clamp(0.3956rem, 0.6797rem + -0.3787vw, 0.585rem);
 
   /* TYPOGRAPHY */
   --font-light: "Latina Essential Light", sans-serif;
