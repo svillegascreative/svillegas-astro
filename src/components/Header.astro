@@ -6,7 +6,7 @@ const pageUrl = Astro.url.pathname;
 
 <header>
   <nav aria-label="Main menu">
-    <ul role="list">
+    <ul>
       {
         menu.map((link) => (
           <li>
@@ -26,12 +26,13 @@ const pageUrl = Astro.url.pathname;
 
 <style>
   header {
-    margin: 1rem;
+    margin: var(--s0);
+    grid-area: header;
   }
 
   ul {
     list-style: none;
-    text-align: right;
+    padding: 0;
   }
 
   a {

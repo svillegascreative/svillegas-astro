@@ -1,4 +1,8 @@
 ---
+/**
+ * Parent for all pages (preferrably used via other page layouts).
+ */
+
 import "../styles/styles.css";
 import site from "../data/site.json";
 import Header from "../components/Header.astro";
@@ -36,6 +40,7 @@ const { title } = Astro.props;
 
     <Footer />
 
+    <!-- SVG filters for left border -->
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="0" width="0">
       <defs>
         <filter id="grit">
@@ -72,6 +77,10 @@ const { title } = Astro.props;
     margin-inline-start: var(--left-border-width);
     display: grid;
     grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
 
     &::before,
     &::after {
@@ -97,9 +106,18 @@ const { title } = Astro.props;
       left: calc(var(--left-border-width) * -2);
       filter: url(#grit2);
     }
+
+    @media (min-width: 600px) {
+      grid-template-columns: 4fr 1fr;
+      grid-template-rows: 1fr auto;
+      grid-template-areas:
+        "main   header"
+        "footer footer";
+    }
   }
 
   main {
+    grid-area: main;
     padding: 1rem 1rem 1rem var(--s1);
   }
 </style>
