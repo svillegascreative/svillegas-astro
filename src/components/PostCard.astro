@@ -6,28 +6,6 @@
 const { post } = Astro.props;
 ---
 
-<style>
-  a {
-    font-family: var(--font-heavy);
-    font-size: var(--s1);
-  }
-
-  time {
-    text-transform: uppercase;
-  }
-
-  .tags {
-    list-style-type: "";
-    display: inline-flex;
-    gap: var(--s-2);
-    padding: 0;
-
-    li {
-      text-transform: uppercase;
-    }
-  }
-</style>
-
 <article>
   <a href={`/posts/${post.slug}`}>{post.data.title}</a>
 
@@ -52,3 +30,25 @@ const { post } = Astro.props;
     )
   }
 </article>
+
+<style>
+  a {
+    font-family: var(--font-heavy);
+    font-size: var(--s1);
+  }
+
+  time {
+    text-transform: uppercase;
+  }
+
+  .tags {
+    list-style-type: "";
+    display: inline-flex;
+    gap: var(--s-2);
+    padding: 0;
+
+    li {
+      text-transform: uppercase;
+    }
+  }
+</style>

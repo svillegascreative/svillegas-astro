@@ -9,6 +9,33 @@ import { shuffle } from "../utils/shuffle";
 const skills = shuffle(techSkills);
 ---
 
+<ul class="logo-soup" aria-label="tech tools">
+  {
+    skills.map((skill) => (
+      <li
+        style={`--grid-span: ${+skill.weight + 3}; --skill-color: ${
+          skill.color
+        }`}
+      >
+        <svg
+          role="img"
+          aria-hidden
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <Fragment set:html={skill.svgPath} />
+        </svg>
+        <span>{skill.name}</span>
+      </li>
+    ))
+  }
+
+  <!-- These are placed in the top row pseudo-randomly to create an uneven edge -->
+  <li aria-hidden class="spacer-1"></li>
+  <li aria-hidden class="spacer-2"></li>
+  <li aria-hidden class="spacer-3"></li>
+</ul>
+
 <style>
   ul {
     --grid-box-size: var(--s-4);
@@ -100,30 +127,3 @@ const skills = shuffle(techSkills);
     }
   }
 </style>
-
-<ul class="logo-soup" aria-label="tech tools">
-  {
-    skills.map((skill) => (
-      <li
-        style={`--grid-span: ${+skill.weight + 3}; --skill-color: ${
-          skill.color
-        }`}
-      >
-        <svg
-          role="img"
-          aria-hidden
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <Fragment set:html={skill.svgPath} />
-        </svg>
-        <span>{skill.name}</span>
-      </li>
-    ))
-  }
-
-  <!-- These are placed in the top row pseudo-randomly to create an uneven edge -->
-  <li aria-hidden class="spacer-1"></li>
-  <li aria-hidden class="spacer-2"></li>
-  <li aria-hidden class="spacer-3"></li>
-</ul>

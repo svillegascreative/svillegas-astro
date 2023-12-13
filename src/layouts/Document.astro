@@ -7,48 +7,6 @@ import Footer from "../components/Footer.astro";
 const { title } = Astro.props;
 ---
 
-<style>
-  body {
-    --left-border-width: var(--s0);
-
-    position: relative;
-    min-height: 100vh;
-    background-color: var(--c-bg);
-    margin-inline-start: var(--left-border-width);
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-
-    &::before,
-    &::after {
-      position: absolute;
-      content: "";
-      top: -1rem;
-      bottom: 0;
-      width: calc(var(--left-border-width) * 2);
-      background: linear-gradient(
-        to bottom,
-        var(--c-teal),
-        var(--c-navy),
-        var(--c-violet)
-      );
-    }
-
-    &::before {
-      left: calc(var(--left-border-width) * -1.5);
-      filter: url(#grit);
-    }
-
-    &::after {
-      left: calc(var(--left-border-width) * -2);
-      filter: url(#grit2);
-    }
-  }
-
-  main {
-    padding: 1rem 1rem 1rem var(--s1);
-  }
-</style>
-
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -103,3 +61,45 @@ const { title } = Astro.props;
     </svg>
   </body>
 </html>
+
+<style>
+  body {
+    --left-border-width: var(--s0);
+
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--c-bg);
+    margin-inline-start: var(--left-border-width);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      top: -1rem;
+      bottom: 0;
+      width: calc(var(--left-border-width) * 2);
+      background: linear-gradient(
+        to bottom,
+        var(--c-teal),
+        var(--c-navy),
+        var(--c-violet)
+      );
+    }
+
+    &::before {
+      left: calc(var(--left-border-width) * -1.5);
+      filter: url(#grit);
+    }
+
+    &::after {
+      left: calc(var(--left-border-width) * -2);
+      filter: url(#grit2);
+    }
+  }
+
+  main {
+    padding: 1rem 1rem 1rem var(--s1);
+  }
+</style>

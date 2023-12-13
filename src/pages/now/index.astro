@@ -19,14 +19,6 @@ const { Content } = await latestNow.render();
 const nowDateFormat = "monthYear";
 ---
 
-<style>
-  .previously {
-    li + li {
-      margin-block-start: 0;
-    }
-  }
-</style>
-
 <Page title="now">
   <p class="lede" slot="lede">
     Quick little updates on what's going on
@@ -58,3 +50,11 @@ const nowDateFormat = "monthYear";
     )
   }
 </Page>
+
+<style>
+  .previously {
+    li + li {
+      margin-block-start: 0;
+    }
+  }
+</style>

@@ -9,12 +9,6 @@ const webPosts = await getCollection("posts", ({ data }) => {
 });
 ---
 
-<style>
-  .logo-soup {
-    margin-block: var(--s2);
-  }
-</style>
-
 <Page title="web">
   <p class="lede" slot="lede">
     I am primarily a "<a
@@ -39,3 +33,9 @@ const webPosts = await getCollection("posts", ({ data }) => {
     )
   }
 </Page>
+
+<style>
+  .logo-soup {
+    margin-block: var(--s2);
+  }
+</style>

@@ -9,17 +9,6 @@ const sortedThoughts = thoughts.sort(
 );
 ---
 
-<style>
-  .thoughts-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .thoughts-list li + li {
-    margin-block-start: var(--s2);
-  }
-</style>
-
 <Page title="thoughts">
   <p class="lede" slot="lede">
     Just a place to post some of my miscellaneous thoughts, since I don't want
@@ -38,3 +27,14 @@ const sortedThoughts = thoughts.sort(
     )
   }
 </Page>
+
+<style>
+  .thoughts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .thoughts-list li + li {
+    margin-block-start: var(--s2);
+  }
+</style>

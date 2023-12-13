@@ -8,16 +8,6 @@ import PostCard from "./PostCard.astro";
 const { posts } = Astro.props;
 ---
 
-<style>
-  ul {
-    list-style-type: "";
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--s2);
-  }
-</style>
-
 <ul>
   {
     posts.map((post) => (
@@ -27,3 +17,13 @@ const { posts } = Astro.props;
     ))
   }
 </ul>
+
+<style>
+  ul {
+    list-style-type: "";
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s2);
+  }
+</style>
