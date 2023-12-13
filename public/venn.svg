@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 330">
+  <defs><ellipse id="a" cx="140" cy="154" rx="150" ry="80" /></defs>
+  <g fill="none" stroke="currentColor">
+    <use href="#a" transform="rotate(90 159 171)" />
+    <use href="#a" transform="rotate(234 159 171)" />
+    <use href="#a" transform="rotate(306 159 171)" />
+    <use href="#a" transform="rotate(18 159 171)" />
+    <use href="#a" transform="rotate(162 159 171)" />
+  </g>
+</svg>
