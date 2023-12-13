@@ -11,7 +11,19 @@ const { h1, lede, title } = Astro.props;
 ---
 
 <style>
+  article {
+    display: grid;
+    grid-template-columns:
+      [full-start] var(--s7) [content-start] 70ch [content-end] 1rem
+      [full-end];
+
+    > * {
+      grid-column: content;
+    }
+  }
+
   header {
+    grid-column: full;
     margin-block-end: var(--s5);
   }
 
@@ -19,6 +31,7 @@ const { h1, lede, title } = Astro.props;
     --font: var(--font-heavy);
     --font-size: var(--s7);
     --measure: 30ch;
+
     -webkit-text-stroke: 0.03em var(--c-navy);
     color: transparent;
     text-shadow: 0.06em 0.04em var(--c-teal);
