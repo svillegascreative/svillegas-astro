@@ -2,6 +2,37 @@
 import Document from "../layouts/Document.astro";
 ---
 
-<Document>
-  <h1>hello, world.</h1>
+<Document title="home">
+  <img src="/public/venn.svg" />
+  <h1>
+    <span>The personal website of</span>
+    sylvia<br />
+    villegas
+  </h1>
 </Document>
+
+<style>
+  img {
+    position: absolute;
+    top: -8rem;
+    right: 8rem;
+    opacity: 0.05;
+    color: var(--c-navy);
+    height: 140vh;
+  }
+
+  h1 {
+    --font-size: 18vw;
+    --font: var(--font-heavy);
+    position: absolute;
+    bottom: 15rem;
+    opacity: 0.5;
+    color: var(--c-teal);
+    line-height: 0.6;
+
+    span {
+      --font-size: 1rem;
+      color: var(--c-navy);
+    }
+  }
+</style>
