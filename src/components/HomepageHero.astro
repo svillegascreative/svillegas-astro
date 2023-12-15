@@ -1,0 +1,51 @@
+---
+import logo from "../../public/venn.svg?raw";
+---
+
+<div>
+  <Fragment set:html={logo} />
+  <h1>
+    <span class="blue">The</span>
+    <span class="blue">personal</span>
+    <span class="blue">website</span>
+    <span class="blue">of</span>
+    <span class="teal">sylvia</span>
+    <span class="teal">villegas</span>
+  </h1>
+</div>
+
+<style>
+  div {
+    min-height: 100vh;
+    position: relative;
+
+    svg {
+      position: absolute;
+      opacity: 0.05;
+      color: var(--c-navy);
+      stroke-width: 3px;
+    }
+  }
+
+  h1 {
+    --font-size: 18vw;
+    --font: var(--font-heavy);
+    position: absolute;
+    bottom: var(--s3);
+    line-height: 0.62;
+
+    span {
+      --font-size: 1rem;
+    }
+
+    .blue {
+      color: var(--c-navy-light);
+      text-shadow: 0 -1px 1px var(--c-navy-lighter);
+    }
+
+    .teal {
+      color: var(--c-teal-light);
+      text-shadow: 0 -1px 1px var(--c-teal-lighter);
+    }
+  }
+</style>
