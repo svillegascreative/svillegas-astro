@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 330">
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 330 330"
+  preserveAspectRatio="xMinYMin"
+>
   <defs><ellipse id="a" cx="140" cy="154" rx="150" ry="80" /></defs>
   <g fill="none" stroke="currentColor">
     <use href="#a" transform="rotate(90 159 171)" />
