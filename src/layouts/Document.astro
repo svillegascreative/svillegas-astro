@@ -7,8 +7,10 @@ import "../styles/styles.css";
 import site from "../data/site.json";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import HomepageHero from "../components/HomepageHero.astro";
 
 const { title } = Astro.props;
+const pageUrl = Astro.url.pathname;
 ---
 
 <html lang="en">
@@ -32,13 +34,17 @@ const { title } = Astro.props;
   </head>
 
   <body>
-    <Header />
+    {pageUrl === "/" ? <HomepageHero /> : null}
 
-    <main id="main">
-      <slot />
-    </main>
+    <div class="grid">
+      <Header />
 
-    <Footer />
+      <main id="main">
+        <slot />
+      </main>
+
+      <Footer />
+    </div>
 
     <!-- SVG filters for left border -->
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="0" width="0">
@@ -74,12 +80,6 @@ const { title } = Astro.props;
     position: relative;
     background-color: var(--c-bg);
     margin-inline-start: var(--left-border-width);
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas:
-      "header"
-      "main"
-      "footer";
 
     &::before,
     &::after {
@@ -105,6 +105,14 @@ const { title } = Astro.props;
       left: calc(var(--left-border-width) * -2);
       filter: url(#grit2);
     }
+  }
+  .grid {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
 
     @media (min-width: 600px) {
       grid-template-columns: 4fr 1fr;
