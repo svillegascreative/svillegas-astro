@@ -7,6 +7,7 @@ import mail from "../icons/mail.svg?raw";
 import document from "../icons/document.svg?raw";
 import github from "../icons/github.svg?raw";
 import linkedin from "../icons/linkedin.svg?raw";
+import FunImage from "../components/FunImage.astro";
 ---
 
 <Page title="hire me">
@@ -19,14 +20,12 @@ import linkedin from "../icons/linkedin.svg?raw";
 
   <h2>About me</h2>
   <div class="gappy">
-    <figure>
-      <img
+    <div class="self">
+      <FunImage
         src="https://res.cloudinary.com/cdemo/image/upload/c_crop,g_face,ar_1:1,w_600/q_auto,f_auto/svillegas/img-0.jpg"
         alt="Headshot of sylvia in front of a soft studio backdrop. She is dressed casually in a dark blue hoodie. Her wavy, shoulder-length hair is pulled away from the top of her forehead, and she is looking at the camera, smiling."
-        width="300"
-        height="300"
       />
-    </figure>
+    </div>
     <p>
       I was a long-time self-taught amateur web developer who finally decided to
       take an intensive web development bootcamp and make a career of it. In the
@@ -143,46 +142,9 @@ import linkedin from "../icons/linkedin.svg?raw";
 </Page>
 
 <style>
-  figure {
-    display: inline-block;
-    position: relative;
-    aspect-ratio: 1/1;
+  .self {
     float: right;
     shape-outside: circle();
-    margin: var(--s-1);
-
-    &::before {
-      position: absolute;
-      content: "";
-      inset: 0;
-      border-radius: 50%;
-      background-image: linear-gradient(
-        to bottom,
-        var(--c-teal-dark) 0,
-        var(--c-navy) 50%,
-        var(--c-violet) 100%
-      );
-      opacity: 0.4;
-      mix-blend-mode: color;
-    }
-
-    img {
-      filter: brightness(0.6) saturate(50%);
-      border-radius: 50%;
-      mix-blend-mode: color-burn;
-    }
-
-    &::after {
-      position: absolute;
-      content: "";
-      top: 5%;
-      left: -7%;
-      width: 115%;
-      height: 86%;
-      border: 3px solid var(--c-navy);
-      border-radius: 50%;
-      transform: rotate(20deg);
-    }
   }
 
   .info {

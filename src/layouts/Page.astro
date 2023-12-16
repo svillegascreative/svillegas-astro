@@ -11,7 +11,7 @@ const { h1, lede, title } = Astro.props;
 ---
 
 <Document title={title}>
-  <article class="gappy">
+  <article>
     <header>
       <h1>{h1 || title}</h1>
 
@@ -32,6 +32,7 @@ const { h1, lede, title } = Astro.props;
     grid-template-columns:
       [full-start] var(--left-gutter) [content-start] var(--content)
       [content-end] 0 [full-end];
+    justify-items: start;
 
     > * {
       grid-column: content;
