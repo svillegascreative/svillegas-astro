@@ -45,31 +45,6 @@ const pageUrl = Astro.url.pathname;
 
       <Footer />
     </div>
-
-    <!-- SVG filters for left border -->
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="0" width="0">
-      <defs>
-        <filter id="grit">
-          <feTurbulence
-            type="fractalNoise"
-            id="turbulence"
-            baseFrequency="0.99"
-            numOctaves="4"></feTurbulence>
-          <feDisplacementMap id="displacement" in="SourceGraphic" scale="500"
-          ></feDisplacementMap>
-        </filter>
-
-        <filter id="grit2">
-          <feTurbulence
-            type="fractalNoise"
-            id="turbulence"
-            baseFrequency="0.7"
-            numOctaves="2"></feTurbulence>
-          <feDisplacementMap id="displacement" in="SourceGraphic" scale="60"
-          ></feDisplacementMap>
-        </filter>
-      </defs>
-    </svg>
   </body>
 </html>
 
@@ -97,17 +72,18 @@ const pageUrl = Astro.url.pathname;
     }
 
     &::before {
-      left: calc(var(--left-border-width) * -1.5);
-      filter: url(#grit);
+      left: calc(var(--left-border-width) * -1.8);
+      filter: url("../assets/grit.svg#grit");
     }
 
     &::after {
       left: calc(var(--left-border-width) * -2);
-      filter: url(#grit2);
+      filter: url("../assets/grit.svg#grit2");
     }
   }
   .grid {
     display: grid;
+    min-height: 100vh;
     grid-template-rows: auto 1fr auto;
     grid-template-areas:
       "header"
@@ -126,6 +102,5 @@ const pageUrl = Astro.url.pathname;
   main {
     grid-area: main;
     padding: 1rem 1rem 1rem var(--s1);
-    min-height: 100vh;
   }
 </style>
