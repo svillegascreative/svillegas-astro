@@ -2,25 +2,16 @@
 /**
  * Renders and styles a single "thought"
  */
+import Time from "./Time.astro";
 
 const { thought } = Astro.props;
 ---
 
 <article>
   {thought.text}
-
-  <time datetime={thought._createdAt}>
-    {
-      new Intl.DateTimeFormat("en-CA", {
-        year: "numeric",
-        month: "numeric",
-        day: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-        timeZone: "America/Toronto",
-      }).format(new Date(thought._createdAt))
-    }
-  </time>
+  <div>
+    <Time date={thought._createdAt} format="qqq" />
+  </div>
 </article>
 
 <style>

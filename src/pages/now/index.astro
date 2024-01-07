@@ -41,7 +41,7 @@ const nowDateFormat = "monthYear";
           {previousNows.map((n) => (
             <li>
               <a href={`/now/${n.data.date}`}>
-                {formatDate(n.data.date, nowDateFormat)}
+                <Time date={n.data.date} format={nowDateFormat} />
               </a>
             </li>
           ))}

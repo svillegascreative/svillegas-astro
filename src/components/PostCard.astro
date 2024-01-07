@@ -3,6 +3,8 @@
  * Renders a card representing (and linking to) a post
  */
 
+import Time from "./Time.astro";
+
 const { post } = Astro.props;
 ---
 
@@ -11,14 +13,7 @@ const { post } = Astro.props;
 
   <p>{post.data.lede}</p>
 
-  <time>
-    {
-      new Intl.DateTimeFormat("en-CA", {
-        dateStyle: "medium",
-        timeZone: "America/Toronto",
-      }).format(new Date(post.data.date))
-    }
-  </time>
+  <Time date={post.data.date} format="MMMDYYYY" />
 
   {
     post.data.tags && (
