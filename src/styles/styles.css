@@ -210,8 +210,15 @@ pre {
 
 code {
   font-size: 1.1em;
-  color: var(--c-teal-dark);
-  background: var(--c-teal-lighter);
+  color: var(--c-navy-dark);
+  background: var(--c-navy-lighter);
+}
+
+blockquote {
+  border-inline-start: 4px solid var(--c-teal);
+  padding: var(--s-1);
+  font-style: italic;
+  margin-inline-start: var(--s3);
 }
 
 .lede {
