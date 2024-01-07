@@ -73,6 +73,7 @@ body {
   line-height: var(--line-height);
   font-weight: normal;
   text-rendering: optimizeLegibility;
+  color: var(--c-navy-dark);
 }
 
 :where(.gappy > * + *) {
@@ -201,6 +202,10 @@ a {
       height: 150%;
     }
   }
+}
+
+code {
+  font-size: 1.1em;
 }
 
 code,
