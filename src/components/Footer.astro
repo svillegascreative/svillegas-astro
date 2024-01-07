@@ -1,17 +1,42 @@
 <footer>
-  <p>All awesomeness on this site &copy; 2023 sylvia villegas.</p>
-  <p>
-    <a href="https://linkedin.com/in/sylviavillegas">LinkedIn</a> |
-    <a href="https://github.com/svillegascreative">Github</a> |
-    <a href="/colophon">Colophon</a>
-  </p>
+  <img src="src/assets/venn.svg" alt="" />
+
+  <div class="gappy">
+    <p>
+      This is the personal website of <b>sylvia villegas</b>, a front-end web
+      developer, accessibility specialist, design critic, outdoors enthusiast,
+      equestrian, and dog mom in Toronto. Thanks for visiting!
+    </p>
+    <p>
+      <a href="https://linkedin.com/in/sylviavillegas">LinkedIn</a> |
+      <a href="https://github.com/svillegascreative">Github</a>
+    </p>
+    <p class="small">
+      All awesomeness on this site &copy; 2023 sylvia villegas. All views are my
+      own. <a href="/colophon">Colophon</a>
+    </p>
+  </div>
 </footer>
 
 <style>
   footer {
     grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--s3);
     margin-block-start: var(--s5);
     padding: var(--s0);
     background: #ddd;
+
+    img {
+      width: clamp(10rem, 40%, 20rem);
+    }
+  }
+
+  @media (min-width: 600px) {
+    footer {
+      flex-direction: row;
+    }
   }
 </style>
