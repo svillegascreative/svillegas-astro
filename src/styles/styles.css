@@ -204,14 +204,14 @@ a {
   }
 }
 
-code {
-  font-size: 1.1em;
+pre {
+  padding: var(--s-3) var(--s-2);
 }
 
-code,
-pre {
-  --font: monospace;
-  color: var(--c-navy);
+code {
+  font-size: 1.1em;
+  color: var(--c-teal-dark);
+  background: var(--c-teal-lighter);
 }
 
 .lede {
@@ -257,4 +257,12 @@ picture {
     width: auto;
     height: auto;
   }
+}
+
+.inline-list {
+  list-style-type: "";
+  display: inline-flex;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
 }

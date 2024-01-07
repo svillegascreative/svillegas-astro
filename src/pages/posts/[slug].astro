@@ -5,6 +5,7 @@
 
 import { getCollection } from "astro:content";
 import Document from "../../layouts/Document.astro";
+import Time from "../../components/Time.astro";
 
 export async function getStaticPaths() {
   const postCollection = await getCollection("posts");
@@ -23,6 +24,18 @@ const { Content } = await post.render();
     <header>
       <h1>{post.data.title}</h1>
       <p class="lede">{post.data.lede}</p>
+      <div class="small">
+        <Time date={post.data.date} format="MMMDYYYY" />
+        {
+          post.data.tags?.length > 0 && (
+            <ul class="inline-list">
+              {post.data.tags.map((tag) => (
+                <li>{tag}</li>
+              ))}
+            </ul>
+          )
+        }
+      </div>
     </header>
 
     <Content />
@@ -30,11 +43,26 @@ const { Content } = await post.render();
 </Document>
 
 <style>
+  header {
+    margin-block-end: var(--s5);
+
+    div {
+      margin-block-start: var(--s-1);
+    }
+  }
+
   h1 {
     --font: var(--font-heavy);
-    --font-size: var(--s4);
-    text-shadow: none;
-    color: var(--c-teal);
-    -webkit-text-stroke-width: 0;
+    --font-size: var(--s6);
+
+    color: var(--c-navy);
+    line-height: 0.9;
+    -webkit-text-stroke: 0.02em var(--c-navy-lighter);
+    text-shadow: 0.02em 0.02em var(--c-teal);
+    margin-block-end: var(--s0);
+  }
+
+  ul {
+    text-transform: uppercase;
   }
 </style>
