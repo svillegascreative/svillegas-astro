@@ -74,6 +74,7 @@ body {
   font-weight: normal;
   text-rendering: optimizeLegibility;
   color: var(--c-navy-dark);
+  background-color: var(--c-bg);
 }
 
 :where(.gappy > * + *) {

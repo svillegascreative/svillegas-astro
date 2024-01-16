@@ -49,38 +49,6 @@ const pageUrl = Astro.url.pathname;
 </html>
 
 <style>
-  body {
-    --left-border-width: var(--s0);
-
-    position: relative;
-    background-color: var(--c-bg);
-    margin-inline-start: var(--left-border-width);
-
-    &::before,
-    &::after {
-      position: absolute;
-      content: "";
-      top: -1rem;
-      bottom: 0;
-      width: calc(var(--left-border-width) * 2);
-      background: linear-gradient(
-        to bottom,
-        var(--c-teal),
-        var(--c-navy),
-        var(--c-violet)
-      );
-    }
-
-    &::before {
-      left: calc(var(--left-border-width) * -1.8);
-      filter: url("../assets/grit.svg#grit");
-    }
-
-    &::after {
-      left: calc(var(--left-border-width) * -2);
-      filter: url("../assets/grit.svg#grit2");
-    }
-  }
   .grid {
     display: grid;
     min-height: 100vh;
