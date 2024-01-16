@@ -1,4 +1,5 @@
 ---
+title: colophon
 lede:
   "This, my personal website (like so many developer projects) is under constant
   iteration and never seems to be complete. Here are some technical details and
