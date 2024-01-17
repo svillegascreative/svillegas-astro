@@ -239,7 +239,7 @@ blockquote {
 
 img,
 picture {
-  max-width: 100%;
+  width: 100%;
   display: block;
 }
 
@@ -273,4 +273,9 @@ picture {
   gap: var(--s-2);
   margin: 0;
   padding: 0;
+}
+
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
 }
