@@ -139,8 +139,6 @@ p,
 ul,
 ol,
 dl,
-pre,
-code,
 blockquote {
   max-inline-size: var(--measure);
 }
@@ -206,12 +204,15 @@ a {
 
 pre {
   padding: var(--s-3) var(--s-2);
+  width: 100%;
 }
 
-code {
+p code {
   font-size: 1.1em;
-  color: var(--c-navy-dark);
-  background: var(--c-navy-lighter);
+  color: var(--c-teal-dark);
+  background: var(--c-teal-lighter);
+  border-radius: 4px;
+  padding-inline: 4px;
 }
 
 blockquote {

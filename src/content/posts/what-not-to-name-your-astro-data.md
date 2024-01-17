@@ -48,8 +48,9 @@ and it wasn't any one of those, so the issue didn't lie there.
 
 ## Conclusion
 
-I never did figure out what the actual root of the problem is (it feels a bit
-beyond me, well into some Astro internals), so I leave this here as a simple
-reminder to myself and cautionary instruction to anyone who might come upon it:
+I never did figure out what the actual root of the problem is &mdash; it feels a
+bit beyond me, well into some Astro internals probably? &mdash; so I leave this
+here as a simple reminder to myself and cautionary instruction to anyone who
+might come upon it:
 
-**You cannot import your JSON file as '`meta`'**. `¯\_(ツ)_/¯`
+**You cannot import your JSON file as `meta`**.
