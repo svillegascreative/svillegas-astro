@@ -11,7 +11,7 @@ const { Content } = await post.render();
 ---
 
 <Document title={post.data.title}>
-  <article class="gappy">
+  <article>
     <header>
       <h1>{post.data.title}</h1>
       <p class="lede">{post.data.lede}</p>
@@ -29,12 +29,31 @@ const { Content } = await post.render();
       </div>
     </header>
 
+    <img src="https://placedog.net/500" />
+
     <Content />
   </article>
 </Document>
 
 <style>
+  article {
+    --content: minmax(auto, 70ch);
+    --left-gutter: minmax(var(--s0), 1fr);
+    display: grid;
+    grid-template-columns:
+      [full-start] var(--left-gutter) [content-start] var(--content)
+      [content-end] 0 [full-end];
+    justify-items: start;
+    row-gap: var(--s0);
+
+    > * {
+      grid-column: content;
+      margin-block-end: 0;
+    }
+  }
+
   header {
+    grid-column: full;
     margin-block-end: var(--s5);
 
     div {
@@ -55,5 +74,9 @@ const { Content } = await post.render();
 
   ul {
     text-transform: uppercase;
+  }
+
+  img {
+    grid-column: full;
   }
 </style>
