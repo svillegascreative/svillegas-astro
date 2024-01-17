@@ -1,5 +1,7 @@
 <footer>
-  <img src="/src/assets/venn.svg" alt="" />
+  <div class="logo-container">
+    <img src="/src/assets/venn.svg" alt="" />
+  </div>
 
   <div class="gappy">
     <p>
@@ -12,7 +14,7 @@
       <a href="https://github.com/svillegascreative">Github</a>
     </p>
     <p class="small">
-      All awesomeness on this site &copy; 2023 sylvia villegas. All views are my
+      All awesomeness on this site &copy; 2024 sylvia villegas. All views are my
       own. <a href="/colophon">Colophon</a>
     </p>
   </div>
@@ -21,22 +23,33 @@
 <style>
   footer {
     grid-area: footer;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     align-items: center;
     gap: var(--s3);
     margin-block-start: var(--s5);
     padding: var(--s0);
-    background: #ddd;
+    background: var(--c-navy-lighter);
+  }
 
+  .logo-container {
     img {
       width: clamp(10rem, 40%, 20rem);
+      margin-inline: auto;
     }
   }
 
   @media (min-width: 600px) {
     footer {
-      flex-direction: row;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .logo-container {
+      text-align: right;
+
+      img {
+        display: inline-block;
+      }
     }
   }
 </style>
