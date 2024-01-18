@@ -2,6 +2,14 @@
 import menu from "../data/menu.json";
 
 const pageUrl = Astro.url.pathname;
+
+/**
+ * Is the current page related to the given menu item?
+ * @param {string} menuItem
+ * @returns {boolean}
+ */
+const isActiveMenuItem = (menuItem) =>
+  pageUrl.includes(menuItem.url) || menuItem.activeUrls.includes(pageUrl);
 ---
 
 <header>
@@ -9,14 +17,14 @@ const pageUrl = Astro.url.pathname;
   <nav>
     <ul>
       {
-        menu.map((link) => (
+        menu.map((menuItem) => (
           <li>
-            {pageUrl.includes(link.url) || link.activeUrls.includes(pageUrl) ? (
-              <a href="#main" class="current-page" aria-current="page">
-                {link.name}
+            {isActiveMenuItem(menuItem) ? (
+              <a href="#main" class="active">
+                {menuItem.name}
               </a>
             ) : (
-              <a href={link.url}>{link.name}</a>
+              <a href={menuItem.url}>{menuItem.name}</a>
             )}
           </li>
         ))
@@ -28,10 +36,30 @@ const pageUrl = Astro.url.pathname;
 <style>
   header {
     grid-area: header;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-inline: var(--s-2);
+    margin-block-end: var(--s3);
+
+    &::before {
+      content: "";
+      height: 3px;
+      width: 15rem;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: var(--c-violet);
+    }
+  }
+
+  img {
+    max-width: 12rem;
   }
 
   nav {
-    padding: var(--s-2);
+    margin-block-end: var(--s-2);
   }
 
   ul {
@@ -47,15 +75,25 @@ const pageUrl = Astro.url.pathname;
     text-decoration: none;
     font-weight: bold;
 
-    &.current-page {
+    &.active {
       text-decoration: underline;
     }
   }
 
   @media (min-width: 600px) {
-    nav {
-      border-inline-start: 4px solid var(--c-violet);
-      padding: var(--s-2) var(--s-2) var(--s3);
+    header {
+      align-items: start;
+      padding-inline: var(--s-2);
+
+      &::before {
+        width: 3px;
+        height: 10rem;
+        top: 0;
+        left: 0;
+        bottom: unset;
+        right: unset;
+        background-color: var(--c-violet);
+      }
     }
 
     ul {
