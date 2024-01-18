@@ -5,12 +5,12 @@ const pageUrl = Astro.url.pathname;
 ---
 
 <header>
-  <nav aria-label="Main menu">
+  <nav>
     <ul>
       {
         menu.map((link) => (
           <li>
-            {pageUrl == link.url ? (
+            {pageUrl.includes(link.url) || link.activeUrls.includes(pageUrl) ? (
               <a href="#main" class="current-page" aria-current="page">
                 {link.name}
               </a>
@@ -26,22 +26,39 @@ const pageUrl = Astro.url.pathname;
 
 <style>
   header {
-    margin: var(--s0);
     grid-area: header;
   }
 
+  nav {
+    padding: var(--s-2);
+  }
+
   ul {
-    list-style: none;
+    list-style-type: "";
+    display: inline-flex;
+    gap: var(--s-2);
+    margin: 0;
     padding: 0;
   }
 
   a {
-    color: #000;
+    color: var(--c-navy);
     text-decoration: none;
     font-weight: bold;
 
     &.current-page {
       text-decoration: underline;
+    }
+  }
+
+  @media (min-width: 600px) {
+    nav {
+      border-inline-start: 4px solid var(--c-violet);
+      padding: var(--s-2) var(--s-2) var(--s3);
+    }
+
+    ul {
+      display: block;
     }
   }
 </style>

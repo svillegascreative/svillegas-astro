@@ -1,14 +1,17 @@
 [
   {
     "name": "Home",
-    "url": "/#main"
+    "url": "/#main",
+    "activeUrls": ["/"]
   },
   {
     "name": "Posts",
-    "url": "/posts/"
+    "url": "/posts/",
+    "activeUrls": []
   },
   {
     "name": "Thoughts",
-    "url": "/thoughts/"
+    "url": "/thoughts/",
+    "activeUrls": []
   }
 ]
