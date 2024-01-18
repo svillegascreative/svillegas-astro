@@ -1,6 +1,10 @@
 <footer>
   <div class="logo-container">
-    <img src="/src/assets/venn.svg" alt="" />
+    <img src="/src/assets/venn.svg" alt="A 5-set Venn diagram" />
+    <img
+      src="/src/assets/signature.svg"
+      alt="'sylvia villegas' in handwriting"
+    />
   </div>
 
   <div class="gappy">
@@ -33,10 +37,8 @@
   }
 
   .logo-container {
-    img {
-      width: clamp(10rem, 40%, 20rem);
-      margin-inline: auto;
-    }
+    width: clamp(10rem, 40%, 20rem);
+    justify-self: center;
   }
 
   @media (min-width: 600px) {
@@ -45,11 +47,7 @@
     }
 
     .logo-container {
-      text-align: right;
-
-      img {
-        display: inline-block;
-      }
+      justify-self: end;
     }
   }
 </style>
