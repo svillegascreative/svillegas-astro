@@ -3,7 +3,7 @@ date: 2024-02-11
 title: Revisiting Carmen
 lede:
   Starting my opera study with the first and only opera I'd ever studied before.
-  My latest thoughts on Geroge Bizet's most famous work.
+  My latest thoughts on Georges Bizet's most famous work.
 ---
 
 It seemed like a natural starting point, as I took the plunge into my
