@@ -1,27 +1,19 @@
 {
   "title": "sylvia villegas",
   "url": "http://svillegas.com",
-  "description": "The personal site of sylvia villegas",
+  "description": "The personal website of sylvia villegas",
   "keywords": [],
 
   "og": {
     "title": "sylvia villegas",
-    "description": "The personal site of sylvia villegas",
+    "description": "The personal website of sylvia villegas",
     "image": "",
     "url": "http://svillegas.com"
-  },
-
-  "twitter": {
-    "title": "sylvia villegas",
-    "description": "The personal site of sylvia villegas",
-    "image": "",
-    "card": ""
   },
 
   "author": {
     "name": "sylvia villegas",
     "email": "sylvia@svillegas.com",
-    "twitter": "https://twitter.com/svillegastweets",
     "instagram": "https://www.instagram.com/zoophoria",
     "github": "https://www.github.com/svillegascreative",
     "linkedin": "https://www.linkedin.com/in/sylviavillegas/"
