@@ -1,6 +1,6 @@
 ---
 title: I think I'm studying opera now?
-date: 2023-01-10
+date: 2024-01-10
 lede:
   In the spirit of learning new things, appearing intelligent, and connecting to
   old memories, I've chosen to dive into this 400-year-old art.
