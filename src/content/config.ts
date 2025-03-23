@@ -1,16 +1,5 @@
 import { defineCollection, z } from "astro:content";
 
-/** Things I'm selling, for a personal marketplace (maybe) */
-const forSaleCollection = defineCollection({
-  type: "content",
-  schema: z.object({
-    description: z.string(),
-    title: z.string(),
-    photos: z.array(z.string().url()),
-    price: z.string(),
-  }),
-});
-
 /** Updates posted in "/now" */
 const nowCollection = defineCollection({
   type: "content",
@@ -34,7 +23,6 @@ const postsCollection = defineCollection({
 // Export a single `collections` object to register your collection(s)
 // This key should match your collection directory name in "src/content"
 export const collections = {
-  "for-sale": forSaleCollection,
   now: nowCollection,
   posts: postsCollection,
 };
