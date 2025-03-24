@@ -13,7 +13,6 @@ const isActiveMenuItem = (menuItem) =>
 ---
 
 <header>
-  <img src="/src/assets/signature.svg" alt="" />
   <nav>
     <ul>
       {
@@ -36,30 +35,11 @@ const isActiveMenuItem = (menuItem) =>
 <style>
   header {
     grid-area: header;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    padding-inline: var(--s-2);
-    margin-block-end: var(--s3);
-
-    &::before {
-      content: "";
-      height: 3px;
-      width: 15rem;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      background-color: var(--c-violet);
-    }
-  }
-
-  img {
-    max-width: 12rem;
+    padding: var(--s0);
   }
 
   nav {
-    margin-block-end: var(--s-2);
+    text-align: right;
   }
 
   ul {
@@ -68,6 +48,7 @@ const isActiveMenuItem = (menuItem) =>
     gap: var(--s-2);
     margin: 0;
     padding: 0;
+    text-align: right;
   }
 
   a {
@@ -81,21 +62,6 @@ const isActiveMenuItem = (menuItem) =>
   }
 
   @media (min-width: 600px) {
-    header {
-      align-items: start;
-      padding-inline: var(--s-2);
-
-      &::before {
-        width: 3px;
-        height: 10rem;
-        top: 0;
-        left: 0;
-        bottom: unset;
-        right: unset;
-        background-color: var(--c-violet);
-      }
-    }
-
     ul {
       display: block;
     }
