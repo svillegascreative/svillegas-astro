@@ -1,0 +1,142 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  overscroll-behavior: none;
+}
+
+body {
+  font-size: var(--font-size);
+  font-family: var(--font);
+  line-height: var(--line-height);
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+  color: var(--c-navy-dark);
+  background-color: var(--c-bg);
+}
+
+:where(.gappy > * + *) {
+  margin-block-start: var(--s0);
+}
+
+/*    ___      __   __   __   __        __           
+ *     |  \ / |__) /  \ / _` |__)  /\  |__) |__| \ / 
+ *     |   |  |    \__/ \__> |  \ /==\ |    |  |  |                                                     
+ */
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dl,
+blockquote {
+  max-inline-size: var(--measure);
+}
+
+::selection {
+  background-color: var(--c-navy);
+  color: white;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-size: var(--font-size);
+  font-family: var(--font);
+  line-height: 1;
+}
+
+h2 {
+  --font-size: var(--s2);
+  --font: var(--font-heavy);
+  --measure: 40ch;
+  margin-block-end: var(--s1);
+  color: var(--c-navy);
+}
+
+h3 {
+  --font-size: var(--s1);
+  --measure: 50ch;
+  color: var(--c-navy);
+}
+
+a {
+  position: relative;
+  color: currentColor;
+  --line-height: 1;
+  text-decoration-color: var(--c-violet-light);
+  text-decoration-thickness: 0.2ex;
+  text-underline-offset: 0.5ex;
+  transition: 0.5s all ease;
+
+  &::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    height: 0;
+    left: 0;
+    right: 0;
+    bottom: -0.5ex;
+    transition: 0.5s all ease;
+  }
+
+  &:hover {
+    text-underline-offset: 0.8ex;
+
+    &::before {
+      background-color: var(--c-violet-lighter);
+      transition: 0.5s all ease;
+      height: 150%;
+    }
+  }
+}
+
+pre {
+  padding: var(--s-3) var(--s-2);
+  width: 100%;
+}
+
+p code {
+  font-size: 1.1em;
+  color: var(--c-teal-dark);
+  background: var(--c-teal-lighter);
+  border-radius: 4px;
+  padding-inline: 4px;
+}
+
+blockquote {
+  border-inline-start: 4px solid var(--c-teal);
+  padding: var(--s-1);
+  font-style: italic;
+  margin-inline-start: var(--s3);
+}
+
+.lede {
+  --measure: 60ch;
+  font-size: var(--s1);
+  line-height: 1.2;
+  font-style: italic;
+}
+
+.small {
+  font-size: 0.8em;
+}
+
+/*     ___       ___        ___      ___  __  
+ *    |__  |    |__   |\/| |__  |\ |  |  /__` 
+ *    |___ |___ |___  |  | |___ | \|  |  .__/ 
+ */
+
+img,
+picture {
+  width: 100%;
+  display: block;
+}
