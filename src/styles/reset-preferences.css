@@ -1,0 +1,29 @@
+/*
+ * More opinionated resets that reflect a preferred way of working.
+ * These are gathered here to make them portable at the start of any
+ * new projet, rather than getting them mixed in with any globals
+ * specific to a given project.
+ *
+ * References:
+ * 1. https://piccalil.li/blog/a-more-modern-css-reset/
+*/
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
