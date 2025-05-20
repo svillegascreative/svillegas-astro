@@ -26,15 +26,21 @@ const { h1, lede, title } = Astro.props;
 
 <style>
   article {
-    display: flex;
-    flex-direction: column;
-    gap: var(--s5);
-  }
+    display: grid;
+    grid-template-columns: 1.618fr 1fr;
+    grid-template-rows: 61.8dvh auto;
+    grid-template-areas:
+      "header header"
+      "main   .";
 
+    > * {
+      grid-column: main;
+    }
+  }
   header {
-    align-self: end;
+    grid-area: header;
+    justify-self: end;
   }
-
   h1 {
     --font: var(--font-heavy);
     --font-size: var(--s7);
@@ -42,7 +48,8 @@ const { h1, lede, title } = Astro.props;
 
     -webkit-text-stroke: 0.03em var(--c-navy);
     color: transparent;
-    text-shadow: 0.06em 0.04em var(--c-teal);
+    text-shadow: 0.06em 0.04em var(--c-teal-light);
     margin-block-end: var(--s-1);
+    text-align: right;
   }
 </style>
