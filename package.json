@@ -10,8 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@shoelace-style/shoelace": "^2.20.1",
     "astro": "^2.7.0",
-    "astro-sanity": "^1.1.7"
+    "astro-sanity": "^1.1.7",
+    "rollup-plugin-copy": "^3.5.0"
   },
   "devDependencies": {
     "postcss-import": "^16.1.0"
