@@ -1,0 +1,29 @@
+---
+---
+
+<sl-drawer
+  id="menu-drawer"
+  modal
+  label="site menu"
+  placement="start"
+  style="--size: 40dvw"
+>
+  <slot />
+</sl-drawer>
+
+<script>
+  const drawer = document.querySelector("#menu-drawer");
+  const openButton = drawer?.nextElementSibling;
+  const closeButton = drawer?.querySelector('sl-button[variant="primary"]');
+
+  openButton?.addEventListener("click", () => drawer?.show());
+  closeButton?.addEventListener("click", () => drawer?.hide());
+</script>
+
+<style>
+  #menu-drawer {
+    &::part(panel) {
+      background-color: var(--c-cream);
+    }
+  }
+</style>

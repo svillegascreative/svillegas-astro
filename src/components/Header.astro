@@ -1,5 +1,6 @@
 ---
 import menu from "../data/menu.json";
+import Drawer from "./Drawer.astro";
 
 const pageUrl = Astro.url.pathname;
 
@@ -13,34 +14,46 @@ const isActiveMenuItem = (menuItem) =>
 ---
 
 <header>
-  <nav>
-    <ul>
-      {
-        menu.map((menuItem) => (
-          <li>
-            {isActiveMenuItem(menuItem) ? (
-              <a href="#main" class="active">
-                {menuItem.name}
-              </a>
-            ) : (
-              <a href={menuItem.url}>{menuItem.name}</a>
-            )}
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
+  <button id="menu-button">menu</button>
+
+  <Drawer>
+    <nav>
+      <ul>
+        {
+          menu.map((menuItem) => (
+            <li>
+              {isActiveMenuItem(menuItem) ? (
+                <a href="#main" class="active">
+                  {menuItem.name}
+                </a>
+              ) : (
+                <a href={menuItem.url}>{menuItem.name}</a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </Drawer>
 </header>
 
+<script>
+  const drawer = document.querySelector("#menu-drawer");
+  const openButton = document.querySelector("#menu-button");
+  openButton?.addEventListener("click", () => drawer?.show());
+</script>
+
 <style>
-  header {
-    grid-area: header;
+  #menu-button {
+    background: none;
+    border: none;
+  }
+  nav {
     padding: var(--s0);
   }
 
   ul {
     list-style-type: "";
-    display: inline-flex;
     gap: var(--s-2);
     margin: 0;
     padding: 0;
@@ -53,12 +66,6 @@ const isActiveMenuItem = (menuItem) =>
 
     &.active {
       text-decoration: underline;
-    }
-  }
-
-  @media (min-width: 600px) {
-    ul {
-      display: block;
     }
   }
 </style>

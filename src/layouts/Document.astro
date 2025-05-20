@@ -3,6 +3,8 @@
  * Parent for all pages (preferrably used via other page layouts).
  */
 
+import "@shoelace-style/shoelace/dist/themes/light.css";
+
 import "../styles/styles.css";
 import site from "../data/site.json";
 import Header from "../components/Header.astro";
@@ -43,6 +45,15 @@ const pageUrl = Astro.url.pathname;
     </div>
   </body>
 </html>
+
+<script>
+  // setBasePath to tell Shoelace where to load icons from.
+  import { setBasePath } from "@shoelace-style/shoelace/dist/utilities/base-path.js";
+  setBasePath("/shoelace-assets/");
+
+  // Load select components.
+  import "@shoelace-style/shoelace/dist/components/drawer/drawer.js";
+</script>
 
 <style>
   .grid {
