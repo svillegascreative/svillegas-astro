@@ -1,6 +1,7 @@
 ---
 import menu from "../data/menu.json";
 import Drawer from "./Drawer.astro";
+import Logo from "../assets/venn.svg";
 
 const pageUrl = Astro.url.pathname;
 
@@ -14,7 +15,12 @@ const isActiveMenuItem = (menuItem) =>
 ---
 
 <header>
-  <button id="menu-button">menu</button>
+  <div class="header-dock">
+    <a href="/#main" title="home">
+      <Logo height={50} stroke-width={10} />
+    </a>
+    <button id="menu-button">menu</button>
+  </div>
 
   <Drawer>
     <nav>
@@ -44,9 +50,20 @@ const isActiveMenuItem = (menuItem) =>
 </script>
 
 <style>
+  .header-dock {
+    position: absolute;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--s-3);
+    padding: var(--s-1);
+    background-color: var(--c-cream);
+  }
+
   #menu-button {
     background: none;
     border: none;
+    cursor: pointer;
   }
   nav {
     padding: var(--s0);
