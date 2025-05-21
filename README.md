@@ -1,10 +1,10 @@
 # svillegas.com
 
-Now built with Astro!
+Built with [Astro](https://docs.astro.build) [v. 5.3]
 
 ## Running it
 
-- `npm run dev` runs the local dev server on port 3000
+- `npm run dev` runs the local dev server on port 4321
 
 ## Shoelace
 
