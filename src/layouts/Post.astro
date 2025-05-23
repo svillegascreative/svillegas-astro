@@ -11,8 +11,8 @@ const { Content } = await post.render();
 ---
 
 <Document title={post.data.title}>
-  <article>
-    <header class="gappy">
+  <article class="prose stack">
+    <header class="stack">
       <h1>{post.data.title}</h1>
       <p class="lede">{post.data.lede}</p>
       <div class="small">
@@ -58,14 +58,6 @@ const { Content } = await post.render();
     div {
       margin-block-start: var(--s-1);
     }
-  }
-
-  h1 {
-    --font: var(--font-heavy);
-    --font-size: var(--s6);
-
-    color: var(--c-navy);
-    line-height: 0.9;
   }
 
   ul {

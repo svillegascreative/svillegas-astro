@@ -1,61 +1,64 @@
 body {
-  font-size: var(--font-size);
-  font-family: var(--font);
+  font-size: var(--s0);
+  font-family: var(--font-light);
   line-height: var(--line-height);
-  font-weight: normal;
   text-rendering: optimizeLegibility;
-  color: var(--c-navy-dark);
-  background-color: var(--c-bg);
-}
-
-:where(.gappy > * + *) {
-  margin-block-start: var(--s0);
-}
-
-/*    ___      __   __   __   __        __           
- *     |  \ / |__) /  \ / _` |__)  /\  |__) |__| \ / 
- *     |   |  |    \__/ \__> |  \ /==\ |    |  |  |                                                     
- */
-
-h1,
-h2,
-h3,
-h4,
-p,
-ul,
-ol,
-dl,
-blockquote {
-  max-inline-size: var(--measure);
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-light);
 }
 
 ::selection {
-  background-color: var(--c-navy);
-  color: white;
+  background-color: var(--color-selection-bg);
+  color: var(--color-selection-text);
 }
+
+/* HEADINGS --------------------------------- */
 
 h1,
 h2,
 h3,
 h4 {
-  font-size: var(--font-size);
-  font-family: var(--font);
+  font-family: var(--font-heavy);
   line-height: 1;
+  color: var(--color-text-heading);
+}
+
+h1 {
+  font-size: var(--s5);
 }
 
 h2 {
-  --font-size: var(--s2);
-  --font: var(--font-heavy);
+  --stack-space: var(--s4);
   --measure: 40ch;
-  margin-block-end: var(--s1);
-  color: var(--c-navy);
+
+  font-size: var(--s3);
 }
 
 h3 {
-  --font-size: var(--s1);
+  --stack-space: var(--s3);
   --measure: 50ch;
-  color: var(--c-navy);
+
+  font-size: var(--s2);
 }
+
+/* PROSE (long-form text) ------------------- */
+
+.prose {
+  --stack-space: var(--s1);
+}
+
+/* prevent text from blowing out, esp. on small screens */
+.prose :is(h1, h2, h3) {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.prose :is(h1, h2, h3, h4, p, ul, ol, dl, blockquote) {
+  max-inline-size: var(--measure);
+  text-wrap: pretty;
+}
+
+/* LINKS ------------------------------------ */
 
 a {
   position: relative;
@@ -88,24 +91,100 @@ a {
   }
 }
 
+/* LISTS ------------------------------------ */
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-inline-start: var(--s0);
+}
+
+ol ::marker {
+  font-family: var(--font-heavy);
+  font-size: 1.2em;
+  color: var(--color-text-heading);
+}
+
+/* CODE / FORMATTED TEXT -------------------- */
+
+:is(code, kbd) {
+  font-family: var(--font-code);
+  font-size: var(--font-size-code);
+}
+
 pre {
   padding: var(--s-3) var(--s-2);
   width: 100%;
 }
 
-p code {
-  font-size: 1.1em;
-  color: var(--c-teal-dark);
-  background: var(--c-teal-lighter);
+pre:has(code) {
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+code {
+  color: var(--color-text-code);
   border-radius: 4px;
   padding-inline: 4px;
 }
+
+kbd {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 1px 3px;
+  box-shadow: 2px 1px #888;
+  background: #cccccc50;
+}
+
+/* QUOTE ------------------------------------ */
 
 blockquote {
   border-inline-start: 4px solid var(--c-teal);
   padding: var(--s-1);
   font-style: italic;
   margin-inline-start: var(--s3);
+
+  cite {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-style: normal;
+
+    &::before {
+      content: "\2014"; /* em dash */
+    }
+  }
+}
+
+/* OTHER ------------------------------------ */
+
+del,
+s {
+  text-decoration-color: firebrick;
+  text-decoration-thickness: 2px;
+}
+
+ins {
+  display: inline-block;
+  transform: translateY(2px) rotate(-1deg);
+  text-decoration: none;
+  font-style: italic;
+  color: firebrick;
+  line-height: 1.1;
+  padding: 0.5ch;
+
+  &::before {
+    content: "^";
+    display: inline-block;
+    transform: scale(2) translateY(0.2cap);
+    padding-inline-end: 0.4ch;
+  }
+}
+
+mark {
+  background: var(--color-highlight);
 }
 
 .lede {

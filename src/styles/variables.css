@@ -20,7 +20,19 @@
 
   --c-cream: antiquewhite;
 
-  --c-bg: var(--c-cream);
+  /* semantic colours */
+  --color-bg-light: var(--c-cream);
+  --color-bg-dark: var(--c-teal-dark);
+
+  --color-text-dark: var(--c-navy-dark);
+  --color-text-light: var(--c-cream);
+  --color-text-heading: var(--c-navy);
+  --color-text-code: var(--c-teal-dark);
+
+  --color-selection-text: var(--c-cream);
+  --color-selection-bg: var(--c-navy);
+
+  --color-highlight: var(--c-teal-lighter);
 
   /* SCALE */
   /* @link https://utopia.fyi/type/calculator?c=400,15,1.125,1200,20,1.333,7,2,1240&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
@@ -39,9 +51,9 @@
 
   /* TYPOGRAPHY */
   --font-light: "Latina Essential Light", sans-serif;
-  --font-heavy: "Latina Essential Heavy", serif;
-  --font: var(--font-light);
-  --font-size: var(--s0);
+  --font-heavy: "Latina Essential Heavy", sans-serif;
+  --font-code: "Consolas";
+  --fot-size-code: 1.1em;
   --line-height: 1.5;
-  --measure: 70ch;
+  --measure: 60ch;
 }

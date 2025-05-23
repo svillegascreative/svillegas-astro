@@ -17,6 +17,14 @@
   }
 }
 
+/* 
+FLOW COMPOSITION
+https://piccalil.li/blog/my-favourite-3-lines-of-css/ 
+*/
+.stack > * + * {
+  margin-block-start: var(--stack-space, 1em);
+}
+
 .inline-list {
   list-style-type: "";
   display: inline-flex;
@@ -25,7 +33,7 @@
   padding: 0;
 }
 
-.full-bleed {
+/* .full-bleed {
   width: 100vw;
   margin-left: calc(50% - 50vw);
-}
+} */
