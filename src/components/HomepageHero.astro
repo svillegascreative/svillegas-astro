@@ -5,12 +5,12 @@ import logo from "../assets/venn.svg?raw";
 <section>
   <Fragment set:html={logo} />
   <h1>
-    <span class="blue">The</span>
-    <span class="blue">personal</span>
-    <span class="blue">website</span>
-    <span class="blue">of</span>
-    <span class="teal">sylvia</span>
-    <span class="teal">villegas</span>
+    <span class="default">The</span>
+    <span class="default">personal</span>
+    <span class="default">website</span>
+    <span class="default">of</span>
+    <span class="name">sylvia</span>
+    <span class="name">villegas</span>
   </h1>
 </section>
 
@@ -24,7 +24,7 @@ import logo from "../assets/venn.svg?raw";
     svg {
       position: absolute;
       opacity: 0.05;
-      color: var(--c-navy);
+      color: var(--color-accent);
       stroke-width: 3px;
       height: 100%;
       width: 100%;
@@ -40,14 +40,13 @@ import logo from "../assets/venn.svg?raw";
     text-align: right;
     letter-spacing: -0.04em;
 
-    .blue {
-      color: var(--c-navy);
-      text-shadow: 0 -1px 1px var(--c-navy-lighter);
+    .default {
+      text-shadow: 0 -1px 1px var(--color-highlight);
     }
 
-    .teal {
-      color: var(--c-teal);
-      text-shadow: 0 -1px 1px var(--c-teal-lighter);
+    .name {
+      color: var(--color-accent);
+      text-shadow: 0 -1px 1px var(--color-highlight);
     }
   }
 </style>

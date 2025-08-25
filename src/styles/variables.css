@@ -1,38 +1,35 @@
 :root {
-  /* COLOURS */
-  /* rgba(137 48 145 / 1) */
-  --c-violet-lighter: rgba(231 213 233 / 1);
-  --c-violet-light: rgba(184 130 189 / 1);
-  --c-violet: lch(37% 60 323);
-  --c-violet-dark: rgba(82 28 87 / 1);
+  /* PALETTE */
+  --color-cream: hsl(48, 66%, 95%);
+  --color-green-1: hsl(175, 27%, 85%);
+  --color-green-2: hsl(175, 20%, 48%);
+  --color-green-3: hsl(175, 54%, 25%);
+  --color-green-4: hsl(175, 100%, 10%);
+  --color-violet: hsl(309, 49%, 29%);
 
-  /* rgba(43 44 125 / 1) */
-  --c-navy-lighter: rgba(212 212 229 / 1);
-  --c-navy-light: rgba(127 128 177 / 1);
-  --c-navy: lch(22% 52 294);
-  --c-navy-dark: rgba(25 26 75 / 1);
+  /* THEME */
+  --color-bg-light: var(--color-cream);
+  --color-bg-dark: var(--color-green-4);
 
-  /* rgba(53 156 154 / 1) */
-  --c-teal-lighter: rgba(214 235 234 / 1);
-  --c-teal-light: rgba(133 195 194 / 1);
-  --c-teal: lch(58% 32 195);
-  --c-teal-dark: rgba(31 93 92 / 1);
+  --color-text-dark: var(--color-green-4);
+  --color-text-light: var(--color-cream);
+  --color-text-light-alt: var(--color-green-1);
+  --color-text-heading: var(--color-green-3);
+  --color-text-code: var(--color-green-3);
+  --color-selection-text: var(--color-cream);
+  --color-selection-bg: var(--color-green-3);
 
-  --c-cream: antiquewhite;
+  --color-interactive: var(--color-violet);
+  --color-accent: var(--color-green-2);
+  --color-error: firebrick; /* TODO: replace */
 
-  /* semantic colours */
-  --color-bg-light: var(--c-cream);
-  --color-bg-dark: var(--c-teal-dark);
+  --color-highlight: var(--color-green-1);
 
-  --color-text-dark: var(--c-navy-dark);
-  --color-text-light: var(--c-cream);
-  --color-text-heading: var(--c-navy);
-  --color-text-code: var(--c-teal-dark);
-
-  --color-selection-text: var(--c-cream);
-  --color-selection-bg: var(--c-navy);
-
-  --color-highlight: var(--c-teal-lighter);
+  /* TODO: settle a grey palette, apply to kbd, and remove these */
+  --kbd-text-color: var(--color-text-dark);
+  --kbd-bg-color: #cccccc50;
+  --kbd-border-color: #ccc;
+  --kbd-shadow-color: #888;
 
   /* SCALE */
   /* @link https://utopia.fyi/type/calculator?c=400,15,1.125,1200,20,1.333,7,2,1240&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
