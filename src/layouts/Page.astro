@@ -1,20 +1,22 @@
 ---
 /**
- * Layout for most pages.
- * @param h1 optional h1, if it doesn't match the title
- * @param lede optional lede, if it comes from content. Use slot if it comes from HTML.
+ * Layout for most pages throughout the site.
  * @param title document title and default h1
+ * @param h1 optional h1, if it doesn't match the document title
+ * @param lede optional lede, if it comes from a content file. Use slot if it comes from HTML. It'll also populate OG description.
+ * @param image optional image, for use as OG image
  */
 import Document from "./Document.astro";
 
-const { h1, lede, title } = Astro.props;
+const { title, h1, lede, image } = Astro.props;
 ---
 
-<Document title={title}>
+<Document title={title} description={lede} image={image}>
   <article>
     <header>
       <h1>{h1 || title}</h1>
 
+      <!-- TODO: sort out something to solve this grossness -->
       <!-- 2 options for including lede: -->
       {lede && <p class="lede">{lede}</p>}
       <slot name="lede" />

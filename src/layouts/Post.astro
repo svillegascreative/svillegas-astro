@@ -1,6 +1,7 @@
 ---
 /**
- * Layout for a single post (content/posts)
+ * Layout for a single post (from content/posts)
+ * @param post the entire content of the post
  */
 
 import Document from "./Document.astro";
@@ -10,7 +11,11 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Document title={post.data.title}>
+<Document
+  title={post.data.title}
+  description={post.data.lede}
+  image={post.data.image}
+>
   <article class="prose stack">
     <header class="stack">
       <h1>{post.data.title}</h1>
