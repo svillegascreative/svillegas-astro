@@ -37,7 +37,7 @@ const pageUrl = Astro.url.pathname;
   <body>
     {pageUrl === "/" ? <HomepageHero /> : null}
 
-    <div class="grid">
+    <div class="site-layout">
       <Header />
 
       <main id="main">
@@ -59,9 +59,9 @@ const pageUrl = Astro.url.pathname;
 </script>
 
 <style>
-  .grid {
+  .site-layout {
     display: grid;
-    min-height: 100vh;
+    min-height: 100dvh;
     column-gap: var(--s0);
     grid-template-rows: auto 1fr auto;
     grid-template-areas:
