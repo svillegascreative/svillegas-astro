@@ -53,4 +53,22 @@
   --font-size-code: 1.1em;
   --line-height: 1.5;
   --measure: 60ch;
+
+  /* LAYOUTS */
+  --grid-page-gutter-width: var(--s0);
+  --grid-page-margin-width: clamp(0px, 80000px, 10vw - calc(2 * var(--s0)));
+
+  /* prettier-ignore */
+  --grid-page-columns: 
+      [left-gutter-start full-start]
+      var(--grid-page-gutter-width)
+      [left-gutter-end left-margin-start content-start]
+      var(--grid-page-margin-width)
+      [left-margin-end prose-start]
+      1fr
+      [prose-end right-margin-start]
+      var(--grid-page-margin-width)
+      [right-margin-end content-end right-gutter-start]
+      var(--grid-page-gutter-width)
+      [right-gutter-end full-end];
 }

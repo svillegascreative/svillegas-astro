@@ -11,7 +11,7 @@ const { title, h1, description, image } = Astro.props;
 ---
 
 <Document title={title} description={description} image={image}>
-  <article>
+  <article class="stack">
     <header>
       <h1>{h1 || title}</h1>
     </header>
@@ -23,19 +23,15 @@ const { title, h1, description, image } = Astro.props;
 <style>
   article {
     display: grid;
-    grid-template-columns: 1.618fr 1fr;
+    grid-template-columns: var(--grid-page-columns);
     grid-template-rows: 61.8dvh auto;
-    grid-template-areas:
-      "header header"
-      "main   .";
 
     > * {
-      grid-column: main;
+      grid-column: prose;
     }
   }
 
   header {
-    grid-area: header;
     justify-self: end;
   }
 

@@ -42,40 +42,26 @@ const { Content } = await post.render();
 
 <style>
   article {
-    --content: minmax(auto, 60ch);
-
     display: grid;
-    grid-template-columns: 1fr 1.618fr;
+    grid-template-columns: var(--grid-page-columns);
     grid-template-rows: 61.8dvh auto;
-    grid-template-areas:
-      "header header"
-      ".      main";
 
-    > * {
-      grid-column: main;
+    * {
+      grid-column: prose;
     }
   }
 
   header {
-    grid-column: header;
     align-content: end;
+    justify-self: start;
+    grid-column: content;
 
     div {
       margin-block-start: var(--s-1);
     }
-  }
 
-  ul {
-    text-transform: uppercase;
-  }
-
-  img {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-
-    @media (min-width: 600px) {
-      width: calc(100% + var(--s0));
-      margin-left: calc(var(--s0) * -1);
+    ul {
+      text-transform: uppercase;
     }
   }
 </style>
