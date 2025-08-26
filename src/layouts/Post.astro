@@ -8,24 +8,21 @@ import Document from "./Document.astro";
 import Time from "../components/Time.astro";
 
 const { post } = Astro.props;
+const { title, lede, date, image, tags } = post.data;
 const { Content } = await post.render();
 ---
 
-<Document
-  title={post.data.title}
-  description={post.data.lede}
-  image={post.data.image}
->
+<Document title={title} description={lede} image={image}>
   <article class="prose stack">
     <header class="stack">
-      <h1>{post.data.title}</h1>
-      <p class="lede">{post.data.lede}</p>
+      <h1>{title}</h1>
+      <p class="lede">{lede}</p>
       <div class="small">
-        <Time date={post.data.date} format="MMMDYYYY" />
+        <Time date={date} format="MMMDYYYY" />
         {
-          post.data.tags?.length > 0 && (
+          tags?.length > 0 && (
             <ul class="inline-list">
-              {post.data.tags.map((tag) => (
+              {tags.map((tag) => (
                 <li>{tag}</li>
               ))}
             </ul>
@@ -33,7 +30,7 @@ const { Content } = await post.render();
         }
       </div>
 
-      {post.data.image && <img src={post.data.image} />}
+      {image && <img src={image} />}
     </header>
 
     <Content />
