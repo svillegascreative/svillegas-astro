@@ -43,18 +43,18 @@ const { Content } = await post.render();
 <style>
   article {
     display: grid;
-    grid-template-columns: var(--grid-page-columns);
-    grid-template-rows: 61.8dvh auto;
+    grid-template: var(--layout-grid-template);
 
-    * {
-      grid-column: prose;
+    :where(*) {
+      grid-column: mid-right;
     }
   }
 
   header {
+    grid-column: content;
+    height: 61.8dvh; /* TODO: variable */
     align-content: end;
     justify-self: start;
-    grid-column: content;
 
     div {
       margin-block-start: var(--s-1);

@@ -23,15 +23,16 @@ const { title, h1, description, image } = Astro.props;
 <style>
   article {
     display: grid;
-    grid-template-columns: var(--grid-page-columns);
-    grid-template-rows: 61.8dvh auto;
+    grid-template: var(--layout-grid-template);
 
-    > * {
-      grid-column: prose;
+    :where(*) {
+      grid-column: mid-left;
     }
   }
 
   header {
+    grid-column: content;
+    height: 38.2dvh; /* TODO: variable */
     justify-self: end;
   }
 

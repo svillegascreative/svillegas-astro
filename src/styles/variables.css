@@ -55,20 +55,25 @@
   --measure: 60ch;
 
   /* LAYOUTS */
-  --grid-page-gutter-width: var(--s0);
-  --grid-page-margin-width: clamp(0px, 80000px, 10vw - calc(2 * var(--s0)));
+  --layout-grid-gutter-width: var(--s0);
+  --layout-grid-margin-width: minmax(0, 5vw);
 
   /* prettier-ignore */
-  --grid-page-columns: 
-      [left-gutter-start full-start]
-      var(--grid-page-gutter-width)
-      [left-gutter-end left-margin-start content-start]
-      var(--grid-page-margin-width)
-      [left-margin-end prose-start]
+  --layout-grid-template:
+  /* for simpler column naming (use with `grid-column` only */
+      "full full full full full full full"
+      ". content content content content content ."
+      ". . left middle right . ."
+      ". wide-left wide-left . . . ."
+      ". . mid-left mid-left . . ."
+      ". . . mid-right mid-right . ."
+      ". . . . wide-right wide-right ."
+      /
+      var(--layout-grid-gutter-width)
+      var(--layout-grid-margin-width)
       1fr
-      [prose-end right-margin-start]
-      var(--grid-page-margin-width)
-      [right-margin-end content-end right-gutter-start]
-      var(--grid-page-gutter-width)
-      [right-gutter-end full-end];
+      2fr
+      1fr
+      var(--layout-grid-margin-width)
+      var(--layout-grid-gutter-width);
 }
