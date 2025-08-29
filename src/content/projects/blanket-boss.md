@@ -1,6 +1,6 @@
 ---
 title: Blanket Boss
-date: 2017-04
+date: 2017-04-01
 tech:
   - Ruby on Rails
   - PostgreSQL

@@ -1,6 +1,6 @@
 ---
 title: PlateAgain
-date: 2017-03
+date: 2017-03-01
 tech:
   - Ruby on Rails
   - PostgreSQL

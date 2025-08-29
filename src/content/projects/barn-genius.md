@@ -1,6 +1,6 @@
 ---
 title: Barn Genius
-date: 2015
+date: 2015-01-01
 tech:
   - Joomla!
   - MySQL
