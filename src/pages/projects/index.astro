@@ -1,0 +1,84 @@
+---
+/**
+ * Page view for all projects
+ */
+
+import { getCollection } from "astro:content";
+import Page from "../../layouts/Page.astro";
+import Time from "../../components/Time.astro";
+
+const projects = await getCollection("projects");
+const sortedProjects = projects.sort(
+  (a, b) => +new Date(b.data.date) - +new Date(a.data.date)
+);
+---
+
+<Page title="projects">
+  <ol class="stack projects-list">
+    {
+      sortedProjects.map((project) => (
+        <li>
+          <article>
+            {project.data.viewsImg && (
+              <img src={`${project.data.viewsImg}?auto=format&w=300`} />
+            )}
+
+            <div class="stack">
+              <h2>{project.data.title}</h2>
+
+              <Time date={project.data.date} format="MMMDYYYY" />
+
+              <span class="status">{project.data.status}</span>
+
+              {project.data.description && <p>{project.data.description}</p>}
+
+              {project.data.tech && (
+                <ul role="list" class="tags">
+                  {project.data.tech.map((t) => (
+                    <li>{t}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </article>
+        </li>
+      ))
+    }
+  </ol>
+</Page>
+
+<style>
+  .projects-list {
+    container: projects-list / inline-size;
+    list-style-type: "";
+    display: flex;
+    flex-direction: column;
+    gap: var(--s3);
+  }
+
+  @container projects-list (width > 40rem) {
+    article {
+      display: flex;
+      align-items: start;
+      gap: var(--s0);
+    }
+  }
+
+  .status {
+    background-color: var(--color-highlight);
+    text-transform: uppercase;
+  }
+
+  .tags {
+    list-style-type: "";
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+    padding: 0;
+    line-height: 1;
+
+    li {
+      text-transform: uppercase;
+    }
+  }
+</style>
