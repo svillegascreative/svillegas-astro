@@ -10,6 +10,11 @@
     "activeUrls": []
   },
   {
+    "name": "Projects",
+    "url": "/projects/",
+    "activeUrls": []
+  },
+  {
     "name": "About",
     "url": "/about/",
     "activeUrls": []
