@@ -18,5 +18,10 @@
     "name": "About",
     "url": "/about/",
     "activeUrls": []
+  },
+  {
+    "name": "Hire me",
+    "url": "/hire/",
+    "activeUrls": []
   }
 ]
