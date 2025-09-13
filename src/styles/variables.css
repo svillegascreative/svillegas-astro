@@ -56,7 +56,9 @@
 
   /* LAYOUTS */
   --layout-grid-gutter-width: var(--s0);
-  --layout-grid-margin-width: minmax(0, 5vw);
+  --layout-grid-margin-width: 1fr;
+  --layout-grid-side-width: minmax(0, 20ch);
+  --layout-grid-center-width: minmax(auto, 40ch);
 
   /* prettier-ignore */
   --layout-grid-template:
@@ -71,9 +73,9 @@
       /
       var(--layout-grid-gutter-width)
       var(--layout-grid-margin-width)
-      1fr
-      2fr
-      1fr
+      var(--layout-grid-side-width)
+      var(--layout-grid-center-width)
+      var(--layout-grid-side-width)
       var(--layout-grid-margin-width)
       var(--layout-grid-gutter-width);
 }
