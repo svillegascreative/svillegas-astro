@@ -16,8 +16,8 @@ const { source, citeName, citeUrl } = Astro.props;
 
   {
     (source || citeName || citeUrl) && (
-      <p>
-        &mdash;{source || null}
+      <p class="source">
+        {source || null}
         {source && (citeName || citeUrl) && `, `}
         {(citeName || citeUrl) && (
           <cite>
@@ -32,3 +32,41 @@ const { source, citeName, citeUrl } = Astro.props;
     )
   }
 </article>
+
+<style>
+  article {
+    --quote-bg-color: var(--color-highlight);
+    --quote-triangle-size: var(--s-1);
+
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
+  blockquote {
+    background-color: var(--quote-bg-color);
+    border-radius: var(--s5) / var(--s3);
+    padding: var(--s-1) var(--s1);
+  }
+
+  .source {
+    position: relative;
+    font-size: 0.8em;
+    font-style: italic;
+    color: var(--color-green-3);
+    margin-inline-end: var(--s4);
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: 0;
+      left: calc(-1.5 * var(--quote-triangle-size));
+      border-inline: var(--quote-triangle-size) solid transparent;
+      border-bottom: var(--quote-triangle-size) solid transparent;
+      border-top: var(--quote-triangle-size) solid var(--quote-bg-color);
+      transform: skewX(50deg);
+    }
+  }
+</style>
