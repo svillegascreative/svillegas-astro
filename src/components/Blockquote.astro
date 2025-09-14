@@ -1,0 +1,34 @@
+---
+/**
+ * Styled blockquote, with optional source and citation link
+ * @param {string} source name of the speaker or source
+ * @param {string} citeName name of the reference material
+ * @param {url} citeUrl url for the cited material
+ */
+
+const { source, citeName, citeUrl } = Astro.props;
+---
+
+<article>
+  <blockquote>
+    <slot />
+  </blockquote>
+
+  {
+    (source || citeName || citeUrl) && (
+      <p>
+        &mdash;{source || null}
+        {source && (citeName || citeUrl) && `, `}
+        {(citeName || citeUrl) && (
+          <cite>
+            {citeUrl ? (
+              <a href={citeUrl}>{citeName || citeUrl}</a>
+            ) : (
+              citeName || null
+            )}
+          </cite>
+        )}
+      </p>
+    )
+  }
+</article>
