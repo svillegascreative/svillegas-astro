@@ -2,6 +2,7 @@
 import Page from "../layouts/Page.astro";
 import LogoSoup from "../components/LogoSoup.astro";
 import Blockquote from "../components/Blockquote.astro";
+import clients from "../data/clients.json";
 ---
 
 <Page title="hire sylvia">
@@ -55,16 +56,7 @@ import Blockquote from "../components/Blockquote.astro";
     non-profit groups.
   </p>
   <ul>
-    <li>Purolator</li>
-    <li>Deloitte</li>
-    <li>The Prosperity Project</li>
-    <li>Government of Canada</li>
-    <li>Loblaw Digital</li>
-    <li>Loblaw Agency</li>
-    <li>No Frills</li>
-    <li>Pane Fresco</li>
-    <li>Sonnet Insurance</li>
-    <li>NCCPP</li>
+    {clients.map((client) => <li>{client.name}</li>)}
   </ul>
 
   <h3>Projects</h3>
@@ -72,22 +64,15 @@ import Blockquote from "../components/Blockquote.astro";
   <a href="projects/">See more</a>
 
   <h2>What nice people have said about me</h2>
-  <Blockquote
-    source="Oana R. (designer)"
-    citeName="LinkedIn"
-    citeUrl="https://www.linkedin.com/in/sylviavillegas/details/recommendations"
-  >
+  <Blockquote source="Oana R. (designer)">
     Sylvia is a designer's dream engineering partner....Working with sylvia has
     made me a better designer
   </Blockquote>
-  <Blockquote source="Dikshant B. (CEO)">
-    Highly recommend her for building user centric digital products.
-  </Blockquote>
-  <Blockquote>
+  <Blockquote source="Rachel A. (product manager)">
     As a product manager, sylvia is the IDEAL engineer....If I were building a
     dream team, sylvia would be on it.
   </Blockquote>
-  <Blockquote>
+  <Blockquote source="Sophia L. (product manager)">
     She brings design thinking, creativity, and empathy to her solutions
   </Blockquote>
   <Blockquote source="Bonnie T. (product owner)">
@@ -97,8 +82,12 @@ import Blockquote from "../components/Blockquote.astro";
   <Blockquote source="Mariana (developer)">
     [Her] passion for accessibility [is] both inspiring and infectious
   </Blockquote>
+  <Blockquote source="Dikshant B. (CEO)">
+    Highly recommend her for building user centric digital products.
+  </Blockquote>
+
   <a href="https://www.linkedin.com/in/sylviavillegas/details/recommendations"
-    >See recommenations on LinkedIn</a
+    >See recommendations on LinkedIn</a
   >
 
   <h2>What I'm looking for</h2>
