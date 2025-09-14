@@ -1,6 +1,7 @@
 ---
 import Page from "../layouts/Page.astro";
 import LogoSoup from "../components/LogoSoup.astro";
+import Blockquote from "../components/Blockquote.astro";
 ---
 
 <Page title="hire sylvia">
@@ -71,36 +72,31 @@ import LogoSoup from "../components/LogoSoup.astro";
   <a href="projects/">See more</a>
 
   <h2>What nice people have said about me</h2>
-  <ul>
-    <li>
-      <q
-        >Sylvia is a designer's dream engineering partner....Working with sylvia
-        has made me a better designer</q
-      >
-    </li>
-    <li>
-      <q>Highly recommend her for building user centric digital products</q>
-    </li>
-    <li>
-      <q
-        >As a product manager, sylvia is the IDEAL engineer....If I were
-        building a dream team, sylvia would be on it.</q
-      >
-    </li>
-    <li>
-      <q>She brings design thinking, creativity, and empathy to her solutions</q
-      >
-    </li>
-    <li>
-      <q
-        >super helpful, so clear and informative to me and my squads, patient,
-        just an AMAZING person to work with</q
-      >
-    </li>
-    <li>
-      <q>[Her] passion for accessibility [is] both inspiring and infectious</q>
-    </li>
-  </ul>
+  <Blockquote
+    source="Oana R. (designer)"
+    citeName="LinkedIn"
+    citeUrl="https://www.linkedin.com/in/sylviavillegas/details/recommendations"
+  >
+    Sylvia is a designer's dream engineering partner....Working with sylvia has
+    made me a better designer
+  </Blockquote>
+  <Blockquote source="Dikshant B. (CEO)">
+    Highly recommend her for building user centric digital products.
+  </Blockquote>
+  <Blockquote>
+    As a product manager, sylvia is the IDEAL engineer....If I were building a
+    dream team, sylvia would be on it.
+  </Blockquote>
+  <Blockquote>
+    She brings design thinking, creativity, and empathy to her solutions
+  </Blockquote>
+  <Blockquote source="Bonnie T. (product owner)">
+    ...super helpful, so clear and informative to me and my squads, patient,
+    just an AMAZING person to work with
+  </Blockquote>
+  <Blockquote source="Mariana (developer)">
+    [Her] passion for accessibility [is] both inspiring and infectious
+  </Blockquote>
   <a href="https://www.linkedin.com/in/sylviavillegas/details/recommendations"
     >See recommenations on LinkedIn</a
   >
