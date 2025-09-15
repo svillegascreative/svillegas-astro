@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Purolator",
+    "logo": "purolator.svg"
+  },
+  {
+    "name": "Deloitte",
+    "logo": "deloitte.svg"
+  },
+  {
+    "name": "The Prosperity Project",
+    "logo": "prosperity-project.jpg"
+  },
+  {
+    "name": "Government of Canada",
+    "logo": "govt-of-canada.svg"
+  },
+  {
+    "name": "Loblaw Digital",
+    "logo": "loblaw-digital.svg"
+  },
+  {
+    "name": "Loblaw Agency",
+    "logo": "loblaw-agency.svg"
+  },
+  {
+    "name": "No Frills",
+    "logo": "no-frills.svg"
+  },
+  {
+    "name": "Pane Fresco",
+    "logo": "pane-fresco.svg"
+  },
+  {
+    "name": "Sonnet Insurance",
+    "logo": "sonnet.svg"
+  },
+  {
+    "name": "NFCDD",
+    "logo": "nfcdd.png"
+  }
+]
