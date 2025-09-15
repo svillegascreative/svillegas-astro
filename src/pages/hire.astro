@@ -2,7 +2,7 @@
 import Page from "../layouts/Page.astro";
 import LogoSoup from "../components/LogoSoup.astro";
 import Blockquote from "../components/Blockquote.astro";
-import clients from "../data/clients.json";
+import Clients from "../components/Clients.astro";
 ---
 
 <Page title="hire sylvia">
@@ -55,9 +55,7 @@ import clients from "../data/clients.json";
     delivering world-class experiences for many great clients, brands, and
     non-profit groups.
   </p>
-  <ul>
-    {clients.map((client) => <li>{client.name}</li>)}
-  </ul>
+  <Clients />
 
   <h3>Projects</h3>
   <p>Some personal projects</p>
