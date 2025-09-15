@@ -25,7 +25,7 @@ const { title, h1, description, image } = Astro.props;
     display: grid;
     grid-template: var(--layout-grid-template);
 
-    :where(*) {
+    > * {
       grid-column: mid-left;
     }
   }

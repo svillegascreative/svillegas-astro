@@ -42,7 +42,7 @@ const { Content } = await post.render();
     display: grid;
     grid-template: var(--layout-grid-template);
 
-    :where(*) {
+    > * {
       grid-column: mid-right;
     }
   }
