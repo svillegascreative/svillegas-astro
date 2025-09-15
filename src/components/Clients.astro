@@ -1,0 +1,36 @@
+---
+import clients from "../data/clients.json";
+
+/**
+ * List of clients, displaying their logos. Used on 'Hire me' page.
+ * @param
+ */
+---
+
+<ul class="client-logos">
+  {
+    clients.map((client) => (
+      <li>
+        <img src={`/img/${client.logo}`} alt={client.name} />
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .client-logos {
+    margin-inline: 0;
+    padding: 0;
+    grid-column: content;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 3rem;
+    row-gap: 1rem;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      max-width: 10rem;
+    }
+  }
+</style>
