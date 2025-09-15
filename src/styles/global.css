@@ -77,18 +77,22 @@ a {
 
 /* LISTS ------------------------------------ */
 
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin-inline-start: var(--s0);
+ul[class] {
+  list-style-type: "";
 }
 
 ol ::marker {
   font-family: var(--font-heavy);
   font-size: 1.2em;
   color: var(--color-text-heading);
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-inline-start: var(--s0);
 }
 
 /* CODE / FORMATTED TEXT -------------------- */
