@@ -6,12 +6,21 @@ import Clients from "../components/Clients.astro";
 ---
 
 <Page title="hire sylvia">
-  <p class="lede" slot="lede">
-    Hi, I'm <strong>sylvia</strong>. I'm a Front End Developer with a focus on <strong
-      >accessibility</strong
-    > and <strong>design systems</strong>, currently looking for a full-time
-    permanent or contract role.
-  </p>
+  <div class="intro">
+    <div class="headshot">
+      <img
+        src="https://cdn.sanity.io/images/iugkqal6/production/a796581baf15a4dc9dcda6c42cb73e4cf3fd9b02-800x801.jpg"
+        alt="Headshot of sylvia villegas, smiling, looking straight at the camera in front of a studio backdrop."
+      />
+    </div>
+
+    <p>
+      Hi, I'm <strong>sylvia</strong>. I'm a Front End Developer with a focus on <strong
+        >accessibility</strong
+      > and <strong>design systems</strong>, currently looking for a full-time
+      permanent or contract role.
+    </p>
+  </div>
 
   <h2>About me</h2>
   <p>
@@ -115,3 +124,46 @@ import Clients from "../components/Clients.astro";
     <li>sylvia@svillegas.com</li>
   </ul>
 </Page>
+
+<style>
+  .intro {
+    grid-column: full;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: var(--s2);
+    background: var(--color-bg-light-alt);
+    padding: var(--s3) var(--layout-grid-gutter-width);
+
+    p {
+      max-width: var(--measure);
+    }
+  }
+
+  @media (min-width: 30rem) {
+    .intro {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .headshot {
+    position: relative;
+    max-width: 80vw;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: -5% 1%;
+      transform: skewX(-15deg);
+      border: clamp(2px, 1vw, 5px) solid var(--color-green-3);
+      border-radius: 50%;
+    }
+
+    img {
+      clip-path: circle(50% at 50% 50%);
+    }
+  }
+</style>

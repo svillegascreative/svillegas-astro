@@ -9,6 +9,7 @@
 
   /* THEME */
   --color-bg-light: var(--color-cream);
+  --color-bg-light-alt: var(--color-green-1);
   --color-bg-dark: var(--color-green-4);
 
   --color-text-dark: var(--color-green-4);
