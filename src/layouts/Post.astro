@@ -13,7 +13,7 @@ const { Content } = await post.render();
 ---
 
 <Document title={title} description={lede} image={image}>
-  <article class="prose stack">
+  <article class="prose stack layout-weight-right">
     <header class="stack">
       <h1>{title}</h1>
       <p class="lede">{lede}</p>
@@ -38,15 +38,6 @@ const { Content } = await post.render();
 </Document>
 
 <style>
-  article {
-    display: grid;
-    grid-template: var(--layout-grid-template);
-
-    > * {
-      grid-column: mid-right;
-    }
-  }
-
   header {
     grid-column: content;
     height: 61.8dvh; /* TODO: variable */

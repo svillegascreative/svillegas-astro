@@ -12,6 +12,21 @@ body {
   color: var(--color-selection-text);
 }
 
+/* LAYOUT ----------------------------------- */
+.layout-weight-left,
+.layout-weight-right {
+  display: grid;
+  grid-template: var(--layout-grid-template);
+}
+
+.layout-weight-left > * {
+  grid-column: mid-left;
+}
+
+.layout-weight-right > * {
+  grid-column: mid-right;
+}
+
 /* HEADINGS --------------------------------- */
 
 h1,
