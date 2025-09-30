@@ -9,16 +9,29 @@ import Document from "../layouts/Document.astro";
   <article class="stack layout-weight-left">
     <h2>hello, world.</h2>
 
-    <p>
-      Welcome to my personal website! It's currently under construction (and,
-      let's face it, it probably always will be).
-      <i>[90s-retro-construction.gif]</i>
+    <p class="intro">
+      I'm <b>sylvia</b>, a web developer, equestrian, outdoors enthusiast, and
+      dog mom. This is my home on the web.
     </p>
 
-    <h2>writing</h2>
-    <p>
-      I'm trying to practice writing about some of the things I think about.
-      Check out my <a href="/posts">posts</a>.
+    <p class="mid-right">
+      Hey, so, this site is still under construction. I'm not really sure what
+      goes here, yet. Maybe check out some things I <a href="posts/">wrote</a> or
+      learn something <a href="about">about me</a>. I dunno, look around, have
+      fun, and <a href="mailto:sylvia@svillegas.com">send me</a> a note if you want.
+      ✌️
     </p>
   </article>
 </Document>
+
+<style>
+  .intro {
+    font-size: var(--s2);
+    line-height: 1.2;
+    margin-block-end: var(--s4);
+  }
+
+  .mid-right {
+    grid-column: mid-right;
+  }
+</style>
