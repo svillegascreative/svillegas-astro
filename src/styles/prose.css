@@ -1,0 +1,40 @@
+/* PROSE (specific modifiers for long-form text) */
+
+.prose {
+  --stack-space: var(--s1);
+
+  /* prevent text from blowing out, esp. on small screens */
+  :is(h1, h2, h3) {
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+
+  :is(h1, h2, h3, h4, p, ul, ol, dl, blockquote) {
+    max-inline-size: var(--measure);
+    text-wrap: pretty;
+  }
+
+  ul,
+  ol {
+    li + li {
+      margin-block-start: var(--stack-space, 1em);
+    }
+  }
+
+  ul:not([class]) {
+    padding-inline-start: var(--s4);
+
+    li {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: "➥";
+        display: block;
+        left: -1.5em;
+        color: var(--color-text-heading);
+        transform: scale(1.5);
+      }
+    }
+  }
+}

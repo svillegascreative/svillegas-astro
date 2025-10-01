@@ -13,6 +13,7 @@ body {
 }
 
 /* LAYOUT ----------------------------------- */
+
 .layout-weight-left,
 .layout-weight-right {
   display: grid;
@@ -56,23 +57,6 @@ h3 {
   font-size: var(--s2);
 }
 
-/* PROSE (long-form text) ------------------- */
-
-.prose {
-  --stack-space: var(--s1);
-}
-
-/* prevent text from blowing out, esp. on small screens */
-.prose :is(h1, h2, h3) {
-  overflow-wrap: anywhere;
-  hyphens: auto;
-}
-
-.prose :is(h1, h2, h3, h4, p, ul, ol, dl, blockquote) {
-  max-inline-size: var(--measure);
-  text-wrap: pretty;
-}
-
 /* LINKS ------------------------------------ */
 
 a {
@@ -92,8 +76,9 @@ a {
 
 /* LISTS ------------------------------------ */
 
-ul[class] {
+ul {
   list-style-type: "";
+  padding: 0;
 }
 
 ol ::marker {
