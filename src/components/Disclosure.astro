@@ -1,0 +1,46 @@
+---
+/**
+ * Wrapper for styled <details> element
+ */
+
+const { summary } = Astro.props;
+---
+
+<details>
+  <summary>{summary}</summary>
+  <slot />
+</details>
+
+<style>
+  summary {
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid var(--color-highlight);
+    padding-inline: 0.2em;
+    font-style: italic;
+    font-size: 0.8em;
+    color: var(--color-accent);
+
+    &::before {
+      position: relative;
+      display: inline-block;
+      content: "➥";
+      font-weight: bold;
+      font-style: initial;
+      font-size: initial;
+      padding-right: 5px;
+      transition: 0.3s ease;
+      transform-origin: 0.45em 0.9em;
+    }
+  }
+
+  details[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  [open]::details-content {
+    border: 1px solid var(--color-highlight);
+    padding: var(--s-3) var(--s-1);
+    margin-top: -1px;
+  }
+</style>
