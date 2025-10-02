@@ -32,3 +32,19 @@ https://piccalil.li/blog/my-favourite-3-lines-of-css/
   margin: 0;
   padding: 0;
 }
+
+.lede {
+  --measure: 60ch;
+  font-size: var(--s1);
+  line-height: 1.2;
+  font-style: italic;
+}
+
+.small {
+  font-size: 0.8em;
+}
+
+.smallcaps {
+  font-size: 0.8em;
+  text-transform: uppercase;
+}

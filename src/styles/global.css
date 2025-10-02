@@ -155,14 +155,3 @@ ins {
 mark {
   background: var(--color-highlight);
 }
-
-.lede {
-  --measure: 60ch;
-  font-size: var(--s1);
-  line-height: 1.2;
-  font-style: italic;
-}
-
-.small {
-  font-size: 0.8em;
-}
