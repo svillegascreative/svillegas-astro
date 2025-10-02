@@ -5,24 +5,22 @@
 
 import techSkills from "../data/tech-skills.json";
 import { shuffle } from "../utils/shuffle";
+import { sortAlpha } from "../utils/sortAlpha";
+import Disclosure from "./Disclosure.astro";
 
-const skills = shuffle(techSkills);
+const shuffledSkills = shuffle(techSkills);
+const sortedSkills = sortAlpha(techSkills, "name");
 ---
 
 <ul class="logo-soup" aria-label="tech tools">
   {
-    skills.map((skill) => (
+    shuffledSkills.map((skill) => (
       <li
         style={`--grid-span: ${+skill.weight + 3}; --skill-color: ${
           skill.color
         }`}
       >
-        <svg
-          role="img"
-          aria-hidden
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg aria-hidden viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <Fragment set:html={skill.svgPath} />
         </svg>
         <span>{skill.name}</span>
@@ -36,8 +34,14 @@ const skills = shuffle(techSkills);
   <li aria-hidden class="spacer-3"></li>
 </ul>
 
+<Disclosure summary="Just the names">
+  <ul class="just-the-names">
+    {sortedSkills.map((skill) => <li>{skill.name}</li>)}
+  </ul>
+</Disclosure>
+
 <style>
-  ul {
+  .logo-soup {
     --grid-box-size: var(--s-4);
     list-style-type: ""; /* removes markers */
     padding: 0;
@@ -99,15 +103,9 @@ const skills = shuffle(techSkills);
     }
   }
 
-  @keyframes reveal-name {
-    from {
-      transform: translate(-50%, 0);
-      opacity: 0;
-    }
-    to {
-      transform: translate(-50%, 50%);
-      opacity: 1;
-    }
+  .just-the-names {
+    columns: 4 8em;
+    column-gap: var(--s0, 1rem);
   }
 
   .spacer-1 {
@@ -124,6 +122,17 @@ const skills = shuffle(techSkills);
     .spacer-3 {
       grid-row: 1 / span 2;
       grid-column: 12 / span 12;
+    }
+  }
+
+  @keyframes reveal-name {
+    from {
+      transform: translate(-50%, 0);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, 50%);
+      opacity: 1;
     }
   }
 </style>
