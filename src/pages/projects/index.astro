@@ -28,12 +28,19 @@ const sortedProjects = projects.sort(
 
               <Time date={project.data.date} format="MMMDYYYY" />
 
-              <span class="status">{project.data.status}</span>
+              <span class="status smallcaps">{project.data.status}</span>
+
+              {project.data.links &&
+                project.data.links.map((link) => (
+                  <a href={link.url} class="link">
+                    {link.label}
+                  </a>
+                ))}
 
               {project.data.description && <p>{project.data.description}</p>}
 
               {project.data.tech && (
-                <ul role="list" class="tags">
+                <ul class="tags smallcaps">
                   {project.data.tech.map((t) => (
                     <li>{t}</li>
                   ))}
@@ -66,7 +73,12 @@ const sortedProjects = projects.sort(
 
   .status {
     background-color: var(--color-highlight);
-    text-transform: uppercase;
+    padding-inline: 0.2em;
+    border-radius: 0.2em;
+  }
+
+  .link + .link {
+    margin-inline-start: 0.5em;
   }
 
   .tags {
@@ -76,9 +88,5 @@ const sortedProjects = projects.sort(
     gap: var(--s-2);
     padding: 0;
     line-height: 1;
-
-    li {
-      text-transform: uppercase;
-    }
   }
 </style>
