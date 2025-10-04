@@ -15,14 +15,14 @@ import Clients from "../components/Clients.astro";
     </div>
 
     <p>
-      Hi, I'm <strong>sylvia</strong>. I'm a Front End Developer with a focus on <strong
-        >accessibility</strong
-      > and <strong>design systems</strong>, currently looking for a full-time
-      permanent or contract role.
+      Hi, I'm <b>sylvia</b>. I'm a Front End Developer with a focus on <b
+        >accessibility</b
+      > and <b>design systems</b>, currently looking for a full-time permanent
+      or contract role.
     </p>
   </div>
 
-  <h2>About me</h2>
+  <h2>My story</h2>
   <p>
     I was a long-time self-taught amateur web developer who finally decided to
     take an intensive web development bootcamp and make a career of it. In the
@@ -40,14 +40,33 @@ import Clients from "../components/Clients.astro";
     systems are my love language and code is my craft.
   </p>
 
-  <h2>What I can do</h2>
-  <ul>
-    <li>front end development</li>
-    <li>UI critique</li>
-    <li>accessibility audits, remediation, and education</li>
-    <li>mentorship and coaching</li>
-    <li>design systems</li>
-  </ul>
+  <h2>What I do</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Front-end development</h3>
+      <p>
+        I build modern and performant interfaces with clean, semantic,
+        maintainable, standards-compliant code.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Web accessibility</h3>
+      <p>
+        I assess digital accessibility of web products through automated and
+        manual testing methods, recommend fixes, and support learning and
+        education across functional roles.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Design systems</h3>
+      <p>
+        A scalable and maintainable web product depends on good systems,
+        including robust, tailored component libraries, pattern guides, and
+        communication systems.
+      </p>
+    </div>
+  </div>
 
   <h3>Tech skills</h3>
   <p>
@@ -72,32 +91,33 @@ import Clients from "../components/Clients.astro";
 
   <h2>What nice people have said about me</h2>
   <Blockquote source="Oana R. (designer)">
-    Sylvia is a designer's dream engineering partner....Working with sylvia has
-    made me a better designer
+    Sylvia is a designer's <b>dream engineering partner</b>....Working with
+    sylvia has
+    <b>made me a better designer</b>
   </Blockquote>
   <Blockquote source="Rachel A. (product manager)">
-    As a product manager, sylvia is the IDEAL engineer....If I were building a
-    dream team, sylvia would be on it.
+    As a product manager, sylvia is <b>the IDEAL engineer</b>....If I were
+    building a dream team, sylvia would be on it.
   </Blockquote>
   <Blockquote source="Sophia L. (product manager)">
-    She brings design thinking, creativity, and empathy to her solutions
+    She brings <b>design thinking, creativity, and empathy</b> to her solutions
   </Blockquote>
   <Blockquote source="Bonnie T. (product owner)">
     ...super helpful, so clear and informative to me and my squads, patient,
-    just an AMAZING person to work with
+    just <b>an AMAZING person to work with</b>
   </Blockquote>
-  <Blockquote source="Mariana (developer)">
-    [Her] passion for accessibility [is] both inspiring and infectious
+  <Blockquote source="Mariana G. (developer)">
+    [Her] <b>passion for accessibility</b> [is] both inspiring and infectious
   </Blockquote>
   <Blockquote source="Dikshant B. (CEO)">
-    Highly recommend her for building user centric digital products.
+    <b>Highly recommend</b> her for building user centric digital products.
   </Blockquote>
 
   <a href="https://www.linkedin.com/in/sylviavillegas/details/recommendations"
-    >See recommendations on LinkedIn</a
+    >See more on LinkedIn</a
   >
 
-  <h2>What I'm looking for</h2>
+  <h2>Let's work together</h2>
   <p>
     I'm looking to join a team that cares about building excellent experiences,
     both for developers and for end users. We will work on collaborative systems
@@ -164,6 +184,30 @@ import Clients from "../components/Clients.astro";
 
     img {
       clip-path: circle(50% at 50% 50%);
+    }
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    row-gap: var(--s0);
+  }
+
+  .card {
+    background-color: var(--color-highlight);
+    border-radius: var(--s0);
+    padding: var(--s0);
+
+    &:nth-child(1) {
+      grid-column: 1 / span 6;
+    }
+
+    &:nth-child(2) {
+      grid-column: 2 / span 6;
+    }
+
+    &:nth-child(3) {
+      grid-column: 3 / span 6;
     }
   }
 </style>
