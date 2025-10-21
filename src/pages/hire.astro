@@ -1,8 +1,14 @@
 ---
+import { getCollection } from "astro:content";
 import Page from "../layouts/Page.astro";
 import LogoSoup from "../components/LogoSoup.astro";
 import Blockquote from "../components/Blockquote.astro";
 import Clients from "../components/Clients.astro";
+
+const projects = await getCollection("projects");
+const recentProjects = projects
+  .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
+  .slice(0, 3);
 ---
 
 <Page title="hire sylvia">
@@ -86,7 +92,16 @@ import Clients from "../components/Clients.astro";
   <Clients />
 
   <h3>Projects</h3>
-  <p>Some personal projects</p>
+  <ul class="cards">
+    {
+      recentProjects.map((project) => (
+        <li class="card">
+          <h4>{project.data.title}</h4>
+          <p>{project.data.description}</p>
+        </li>
+      ))
+    }
+  </ul>
   <a href="projects/">See more</a>
 
   <h2>What nice people have said about me</h2>
