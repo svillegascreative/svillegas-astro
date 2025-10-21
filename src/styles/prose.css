@@ -22,6 +22,7 @@
   }
 
   ul:not([class]) {
+    --stack-space: var(--s-2);
     padding-inline-start: var(--s4);
 
     li {
@@ -29,11 +30,12 @@
 
       &::before {
         position: absolute;
-        content: "➥";
+        content: "*";
         display: block;
-        left: -1.5em;
+        left: -1.2em;
         color: var(--color-text-heading);
-        transform: scale(1.5);
+        transform: scale(2) translateY(0.2em);
+        font-weight: bold;
       }
     }
   }
