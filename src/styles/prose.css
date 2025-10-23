@@ -14,8 +14,8 @@
     text-wrap: pretty;
   }
 
-  ul,
-  ol {
+  ul:not([class]),
+  ol:not([class]) {
     li + li {
       margin-block-start: var(--stack-space, 1em);
     }
