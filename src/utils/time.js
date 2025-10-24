@@ -1,5 +1,12 @@
 export const formatDate = (date, formatName) => {
   switch (formatName) {
+    // e.g. 2023
+    case "year":
+      return new Intl.DateTimeFormat("en-CA", {
+        year: "numeric",
+        timeZone: "America/Toronto",
+      }).format(new Date(date));
+
     // e.g. October 2023
     case "monthYear":
       return new Intl.DateTimeFormat("en-CA", {
